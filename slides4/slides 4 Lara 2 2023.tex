@@ -1,0 +1,1020 @@
+\PassOptionsToPackage{force}{filehook}
+
+\documentclass{beamer}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}% http://ctan.org/pkg/amssymb
+\usepackage{amsfonts}
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+%https://tex.stackexchange.com/questions/42619/x-mark-to-match-checkmark
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+%\usepackage{amsfonts}
+\usepackage{graphicx} 
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage{cancel}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{comment}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+}
+\newtheorem*{proposicion}{Proposici\'on}
+\newtheorem*{teorema}{Teorema}
+\renewcommand*{\proofname}{Demostraci\'on}
+\newtheorem*{ejercicio}{Ejercicio}
+\usepackage{pgf,tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows,patterns}
+\usetikzlibrary{arrows.meta}
+\usepackage[spanish, activeacute]{babel} %Definir idioma español
+\usepackage[utf8]{inputenc} %Codificacion utf-8
+\usepackage{multirow}
+
+%   Esconder las soluciones
+\newif\ifhideproofs
+\hideproofstrue %uncomment to hide proofs
+
+\ifhideproofs
+\usepackage{environ}
+\NewEnviron{hide}{}
+\let\solucion\hide
+\let\endsolucion\endhide
+\fi
+
+\usepackage{color}
+\usepackage{mathpazo}
+\usepackage{hyperref}
+\usepackage{multimedia}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage[spanish, activeacute]{babel} 
+\usepackage{graphicx} 
+\usepackage{booktabs}
+\usepackage{cite}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{multirow,array}
+
+\usepackage{mathrsfs}
+%\usepackage{amssymb}
+
+\usepackage{tabularx}
+    \newcolumntype{L}{>{\raggedright\arraybackslash}X}
+        %\newcolumntype{b}{>{\hsize=1.5\hsize}X}
+    %\newcolumntype{s}{>{\hsize=.9\hsize}X}
+
+\usepackage{amsthm}
+\newtheorem{thm}{Teorema}
+\newtheorem{lem}[thm]{Lema}
+\newtheorem{axiom}[thm]{Axioma}
+\newtheorem{prop}[thm]{Proposici\'on}
+\newtheorem{coro}[thm]{Corolario}
+\theoremstyle{definition}
+\newtheorem{defn}{Definici\'on}
+\DeclareGraphicsExtensions{.pdf,.jpeg,.png,.eps}
+\usetheme{CambridgeUS}
+\setbeamertemplate{navigation symbols}{}
+
+%Paréntisis y otros
+\newcommand{\cmc}{\overset{m.c.}{\rightarrow}}
+\newcommand{\p}[1]{\left(#1\right)}
+\newcommand{\cor}[1]{\left[#1\right]}
+\newcommand{\lla}[1]{\left\{#1\right\}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\lol}{\mathcal{L}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\paren}[1]{\left(#1\right)}
+\newcommand{\corc}[1]{\left[#1\right]}
+\newcommand{\llav}[1]{\left\lbrace#1\right\rbrace}
+\newcommand{\partt}[1]{\left(\text{#1}\right)}
+\newcommand{\corctt}[1]{\left[\text{#1}\right]}
+\newcommand{\llavtt}[1]{\left\lbrace\text{#1}\right\rbrace}
+\makeatletter
+\def\munderbar#1{\underline{\sbox\tw@{$#1$}\dp\tw@\z@\box\tw@}}
+\makeatother
+
+%\usepackage[scr=rsfs,cal=boondox]{mathalfa}
+\usepackage[scr=esstix,cal=boondox]{mathalfa}
+
+% \usepackage{mdframed}
+% \newmdtheoremenv{solucion}{Soluci\'on}
+
+% Enmarcar las soluciones
+% \newenvironment{solu}
+% {%
+% \begin{framed}
+%   \begin{solucion}
+%   }%
+%     {%     
+%   \end{solucion}
+% \end{framed}
+% }
+
+%   Esconder las soluciones
+\newif\ifhideproofs
+%\hideproofstrue %uncomment to hide proofs
+
+\ifhideproofs
+\usepackage{environ}
+\NewEnviron{hide}{}
+\let\solucion\hide
+\let\endsolucion\endhide
+\fi
+
+
+
+%Graficos y cosas
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{mathtools}
+\usepackage{xcolor}
+%\pgfplotsset{compat=1.9}
+\usepgfplotslibrary{fillbetween,decorations.softclip}
+\pgfplotsset{compat = newest}
+\usepackage{pst-func}
+\usepackage{pstricks}
+\usepackage{pst-plot}
+
+% Comando para usar multiples footnotes en un align environment
+
+\makeatletter
+\newcommand{\AlignFootnote}[1]{%
+    \ifmeasuring@
+    \else
+        \footnote{#1}%
+    \fi
+}
+\makeatother
+
+%https://tex.stackexchange.com/questions/82782/footnote-in-align-environment
+
+
+\DeclareGraphicsExtensions{.pdf,.jpeg,.png,.eps}
+\usepackage{tikz}
+%\usepackage{tikz-cd}
+\usetikzlibrary{decorations}
+%\usetikzlibrary{snakes}
+\usetikzlibrary{cd}
+
+\useoutertheme{split}
+\useinnertheme{rounded}
+
+
+%\beamertemplatenavigationsymbolsempty  %removes navigation bar
+\definecolor{rosee}{rgb}{0.7,0.05,0.25}
+\definecolor{pacificorange}{cmyk}{0,.6,1,0} %approved Pacific colors 2010
+\definecolor{pacificgray}{cmyk}{0,.15,.35,.60}
+\definecolor{pacificlgray}{cmyk}{0,0,.2,.4}
+\definecolor{pacificcream}{cmyk}{.05,.05,.15,0}
+\definecolor{deepyellow}{cmyk}{0,.17,.80,0}
+\definecolor{lightblue}{cmyk}{.49,.01,0,0}
+\definecolor{lightbrown}{cmyk}{.09,.15,.34,0}
+\definecolor{deepviolet}{cmyk}{.79,1,0,.15}
+\definecolor{deeporange}{cmyk}{0,.59,1,18}
+\definecolor{dustyred}{cmyk}{0,.7,.45,.4}
+\definecolor{grassgreen}{RGB}{92,135,39}
+\definecolor{pacificblue}{RGB}{59,110,143}
+\definecolor{pacificgreen}{cmyk}{.15,0,.45,.30}
+\definecolor{deepblue}{cmyk}{1,.57,0,2}
+\definecolor{turquoise}{cmyk}{.43,0,.24,0}
+\definecolor{gren}{rgb}{0.2,0.8,0.5}
+\definecolor{orang}{rgb}{1,0.64,0}
+\definecolor{amethyst}{rgb}{0.6, 0.4, 0.8}
+\definecolor{dodgerblue}{rgb}{0.12, 0.56, 1.0}
+\definecolor{fandango}{rgb}{0.71, 0.2, 0.54}
+\definecolor{forestgreen(traditional)}{rgb}{0.0, 0.27, 0.13}
+\definecolor{iris}{rgb}{0.35, 0.31, 0.81}
+\definecolor{jazzberryjam}{rgb}{0.65, 0.04, 0.37}
+\definecolor{mediumjunglegreen}{rgb}{0.11, 0.21, 0.18}
+\definecolor{mediumpersianblue}{rgb}{0.0, 0.4, 0.65}
+\definecolor{midnightgreen}{rgb}{0.0, 0.29, 0.33}
+\definecolor{orangee}{rgb}{1.0, 0.5, 0.0}
+
+% There are many different themes available for Beamer. A comprehensive
+% list with examples is given here:
+% http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
+% You can uncomment the themes below if you would like to use a different
+% one:
+%\usetheme{AnnArbor} %boca
+%\usetheme{Antibes} %azul y gris
+%\usetheme{Bergen} %barra who where
+%\usetheme{Berkeley} %bordes
+%usetheme{Berlin} %blanco y azul
+%\usetheme{Boadilla}
+%\usetheme{boxes}
+\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{default}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Luebeck}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+%\usecolortheme{beaver}
+%\usecolortheme{whale}
+%\usecolortheme{orchid}
+%\usecolortheme{wolverine}
+%\usecolortheme[named=pacificblue]{structure} %replaces the blue of Copenhagen with Pacific orange
+
+\definecolor{myNewColorA}{rgb}{0,0,100}
+\definecolor{myNewColorB}{rgb}{0,100,100}
+\definecolor{myNewColorC}{rgb}{0,200,100}
+\definecolor{myNewColorD}{rgb}{0,100,200}
+
+%\setbeamercolor*{palette primary}{bg=myNewColorA, fg = black}
+%\setbeamercolor*{palette secondary}{bg=myNewColorB, fg = black}
+%\setbeamercolor*{palette tertiary}{bg=myNewColorC, fg = black}
+%\setbeamercolor*{palette quaternary}{bg=myNewColorD, fg = black}
+
+\setbeamercolor*{palette primary}{bg=rosee, fg = white}
+\setbeamercolor*{palette secondary}{bg=gren, fg = white}
+\setbeamercolor*{palette tertiary}{bg=-red!75!, fg = white}
+\setbeamercolor*{palette quaternary}{bg=-red!75!, fg = white}
+
+\newtheorem{proposition}{Proposici\'on}
+\newcommand{\ton}{\underset{n\to\infty}{\longrightarrow}}
+\newcommand{\cp}{\overset{P}{\rightarrow}}
+\newcommand{\cw}{\overset{d}{\rightarrow}}
+
+%\expandafter\def\expandafter\insertshorttitle\expandafter{%
+ % \insertshorttitle\hfill%
+  %\insertframenumber\,/\,\inserttotalframenumber}
+
+%\mode
+%<all>
+
+%Para agrandar el espacio entre renglones de las tablas
+%https://tex.stackexchange.com/questions/26690/how-to-add-extra-spaces-between-rows-in-tabular-environment
+\renewcommand{\arraystretch}{1.5}
+
+\usepackage{color, xcolor}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\usepackage{listings}
+\lstdefinestyle{mystyle}{
+  backgroundcolor=\color{backcolour},   
+  commentstyle=\color{codegreen},
+  language = R,
+  % commentchar=\#,
+  keywordstyle=\color{magenta},
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{codepurple},
+  basicstyle=\ttfamily\footnotesize,
+  breakatwhitespace=false,         
+  breaklines=false,                 
+  captionpos=b,                    
+  frame=single,
+  keepspaces=false,
+  % numbers=left,                    
+  % numbersep=pt,                  
+  % columns=flexible,
+  stepnumber=1,
+  resetmargins=true,
+  showspaces=false,                
+  showstringspaces=false,
+  showtabs=false,                  
+  tabsize=1
+}
+\lstset{style=mystyle}
+  
+
+
+
+\def\mydate{\leavevmode\hbox{\twodigits\day/\twodigits\month/\the\year}}
+\def\twodigits#1{\ifnum#1<10 0\fi\the#1}
+
+\usepackage[final]{pdfpages}
+
+% PARA AGREGAR IMAGEN EN EL FONDO DE LAS SLIDES
+\usebackgroundtemplate%
+%{%
+ %\includegraphics[width=\paperwidth,height=\pape%rheight]{slides1/fondo.png}%  
+%}
+
+
+\title{\color{black}{Análisis Estadístico}}
+\subtitle{\color{rosee}M\'etodo de estimaci\'on de m\'axima verosimilitud\footnote{Basado en las notas de Ezequiel Smucler.}}
+\institute[]{UTDT}
+\medskip
+\date[UTDT 2021]{}
+
+\begin{document}
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{\color{rosee}M\'axima verosimilitud}
+ \small \begin{itemize}
+\item    ¿Por qu\'e querr\'iamos utilizar estimadores de m\'axima verosimilitud en vez de los estimadores de momentos? \underline{Bajo ciertas condiciones} los estimadores de m\'axima verosimilitud
+    son \textbf{asint\'oticamente m\'as eficientes}${}^*$ que los estimadores de momentos.
+
+  \end{itemize}
+
+  No es fácil estudiar las propiedades en muestras finitas
+  (insesgadez, eficiencia, por ejemplo) de los estimadores de momentos,
+  de m\'axima verosimilitud, o de cualquier familia grande de
+  estimadores para el caso. Por eso, estudiaremos las propiedades
+  \textbf{asint\'oticas} de estos estimadores.
+
+  \bigskip Aqu\'i \textbf{asint\'oticas} quiere decir con un tama\~no de
+  muestra que tiende a infinito. Por qu\'e nos deber\'ian interesar
+  propiedades asintóticas?\medskip
+  \begin{itemize}
+  \item Las propiedades asintóticas muchas veces reflejan bien el
+    comportamiento para muestras finitas (cuando $n\gg 0$).\medskip
+  \item No nos queda otra, caracterizar el comportamiento de estimadores
+    gen\'ericos para muestras finitas es d\'ificil/imposible.
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{\color{rosee}Consistencia de $\widehat{\theta}_{MV}$ y $\widehat{\theta}_{MM}$}
+\small
+    Sea $X_{1},\dots,X_{n}\stackrel{iid}{\sim} X$ tal que $X\sim f(x;\theta)$,donde $\theta$ es un valor fijo y desconocido. Bajo
+    \textbf{condiciones de regularidad}\footnote{1) Las variables $X_i$ tienen un soporte común que no depende de $\theta$. 2) la función de densidad $f(x;\theta)$ es diferenciable. 3) Si $\theta$ puede tomar valores en $[a,b]$ entonces $\theta$ no es ninguno de los valores del borde. 4)$\ell_n(\theta)=\ln(\mathcal{L}_n(\theta))$ es diferenciable en $\theta$. 5) $\ell_n^{\prime}(\theta)=0$ tiene única solución.} sobre $f(x;\theta)$, se tiene que:
+    \[\widehat{\theta}_{MV} \cp \theta\quad \text{ y que } \quad \widehat{\theta}_{MM} \cp \theta\]
+
+ \medskip 
+\begin{itemize}
+\item los métodos de máxima verosimilitud y de momentos producen estimadores consistentes.\medskip
+   
+    \item Estas condiciones se cumplen para los modelos Normal, Binomial, Poisson y Exponencial (entre otros). 
+    
+    \item Sin embargo, para el modelo Uniforme$(0,\theta)$ estas condiciones no se cumplen. Por lo tanto, para ver que $\widehat{\theta}_{MV}$ es consistente para $\theta$ hay que mostrar que $\widehat{\theta}_{MV}\stackrel{p}{\to}\theta$ mostrando, por ejemplo, que $\widehat{\theta}_{MV}\stackrel{m.c.}{\to}\theta$.
+\end{itemize}  
+\end{frame}
+
+%\begin{frame}{\color{rosee}Consistencia de m\'axima verosimilitud}
+%  \begin{proof}
+%    Vamos a dar una esbozo de la prueba, dejando muchos detalles sin cerrar.
+%    $\widehat{\theta}_{MV}$ maximiza
+%    $$
+%    \ln(\mathcal{L}_{n}(\theta))=\frac{1}{n}\sum\limits_{i=1}^{n} \ln(f(X_{i};\theta)).
+%    $$
+%    Por LGN, para cualquier $\theta$ fijo, si $\theta$ es el valor verdadero
+%    $$
+%    \ln(\mathcal{L}_{n}(\theta))=\frac{1}{n}\sum\limits_{i=1}^{n} \ln(f(X_{i};\theta)) \cp E_{\theta}\left(\ln(f(X_{i};\theta)) \right),
+%    $$
+%    donde el sub-indice $\theta$ indica que la esperanza se calcula usando $\theta$.
+%  \end{proof}
+%\end{frame}
+%
+%\begin{frame}{\color{rosee}Consistencia de m\'axima verosimilitud}
+%  \begin{proof}
+%    Es de esperar entonces que $\widehat{\theta}_{MV}$ converja al valor
+%    de $\theta$ que maximiza $E_{\theta}\left(\ln(f(X_{i};\theta)) \right)$.
+%    
+%    Pero
+%    $$
+%    \left. \frac{d}{d\theta}E_{\theta}\left(\ln(f(X_{i};\theta)) \right) \right\vert_{\theta=\theta}=0
+%    $$
+%    y
+%    $$
+%        \left.\frac{d^{2}}{d\theta^{2}}E_{\theta}\left(\ln(f(X_{i};\theta)) \right)\right\vert_{\theta=\theta}<0 .
+%    $$
+%    Luego $E_{\theta}\left(\ln(f(X_{i};\theta)) \right)$ se maximiza en
+%    $\theta$, el valor verdadero que queremos estimar.
+%  \end{proof}
+%\end{frame}
+
+%\begin{frame}{\color{rosee}Consistencia de momentos}
+%  \begin{theorem}[Consistencia de momentos]
+%    Sea $X_{1},\dots,X_{n}$ una muestra aleatoria tal que $X_{i}$ tiene
+%    densidad $f(x;\theta)$ para un $\theta$ desconocido. Bajos
+%    condiciones de regularidad sobre $f(x;\theta)$,
+%    $$
+%    \widehat{\theta}_{MM} \cp \theta.
+%    $$
+%  \end{theorem}
+%\end{frame}
+
+\begin{frame}{\color{rosee}Velocidad de convergencia $n^{-\alpha}$}\small
+\begin{itemize}
+    \item  Si un estimador $\widehat{\theta}_{n}$ es consistente
+  para $\theta$, entonces: 
+  $$\text{Error de estimación }= 
+  \widehat{\theta}_{n} - \theta \cp 0.$$
+  \item Nos interesa aproximar la distribución del error de estimación al menos cuando $n$ sea suficientemente grande, y para hacer esto necesitamos \textit{amplificar los errores} multiplicando a
+  $\widehat{\theta}_{n} - \theta$ por una potencia de $n$. 
+  $$
+\text{Es decir, debemos  mirar: } \frac{\widehat{\theta}_{n} - \theta}{n^{-\alpha}}= n^{\alpha}(\widehat{\theta}_{n} - \theta), \text{ con } 
+  \alpha>0.$$
+\item Si $n\gg 0$, por m\'as que
+  $(\widehat{\theta}_{n} - \theta)$ est\'e concentrada alrededor de
+  0, al multiplicar por $n^{\alpha}$ tenemos una `lupa'\, que nos permite
+  ver con  claridad.\medskip
+  
+  \item El tema es qué \textit{zoom} usamos. Si usamos un
+  $\alpha$ muy grande, podemos hacer que
+  $n^{\alpha}(\widehat{\theta}_{n} - \theta)$ `explote'\, hacia infinito. Para ciertos problemas par\'ametricos, y para el estimador de m\'axima verosimilitud en particular, la lupa correcta es $\alpha=1/2$ y la distribuci\'on asintótica es normal. 
+%  \item Esto est\'a íntimamente conectado con el TCL.
+  \end{itemize}
+\end{frame}
+
+% \begin{frame}{\color{rosee}Distribuci\'on asint\'otica}
+%   \begin{definition}[Distribuci\'on asint\'otica]
+%     Decimos que un estimador $\widehat{\theta}_{n}$ que es consistente para $\theta$ tiene distribuci\'on asint\'otica $\mathcal{F}$ si existe $\alpha>0$ tal que
+%     $$
+%     n^{\alpha}(\widehat{\theta}_{n}-\theta) \cw \mathcal{F},
+%     $$
+%     es decir, si para tama\~nos de muestra grande, la distribuci\'on de $n^{\alpha}(\widehat{\theta}_{n}-\theta) $ es aproximadamente $\mathcal{F}$.
+%   \end{definition}
+%   
+%   En la gran mayor\'ia de los casos que veremos, $\mathcal{F}$ ser\'a normal con media cero. 
+% \end{frame}
+
+\begin{frame}{\color{rosee}Recuerdo: estimador asintóticamente normal}
+\small
+    Un estimador $\widehat{\theta}_{n}$ de $\theta$ es
+    asintóticamente normal si: 
+    $$
+    n^{1/2}(\widehat{\theta}_{n}-\theta) \cw N(0, V(\theta)),
+    $$
+    es decir, si para tama\~nos de muestra grande, la distribuci\'on de
+    $ n^{\alpha}(\widehat{\theta}_{n}-\theta) $ es aproximadamente
+    $N(0, V(\theta))$. Llamaremos a $V(\theta)$ y $\sqrt{V(\theta)}$ a la varianza y error est\'andar de la \textbf{distribución asint\'otica}
+    de $\widehat{\theta}_{n}$ respectivamente.
+  
+\textbf{ Observaciones:}
+  \begin{itemize}
+ \item  Para ciertos modelos y estimadores puede ocurrir que $n^{\alpha}(\widehat{\theta}_{n}-\theta)$, con $\alpha \neq 1/2$, converja en distribución a algo posiblemente no normal.
+ \item Si $\widehat{\theta}_{n}$ es asintóticamente normal, entonces para $n\gg0$, $\widehat{\theta}_{n} \sim_a N\left(\theta, \frac{V(\theta)}{n} \right)$
+\item El término $
+    \frac{V(\theta)}{n} 
+    $    aproxima la varianza de $\widehat{\theta}_{n}$ cuando $n$ es grande. \textcolor{gray}{ No tiene porque ser cierto que 
+    $Var(n^{1/2}(\widehat{\theta}_{n}-\theta))\stackrel{n\to\infty}{\rightarrow} V(\theta)$.}
+   \item Como $\theta$ es en general desconocido, para que estos resultados nos sirvan en la práctica, tendr\'iamos que encontrar un estimador de $V(\theta)$, que podr\'ia ser   $V(\widehat{\theta}_{n})$, que resulte \underline{consistente}.\medskip
+  \end{itemize}
+
+  
+\end{frame}
+
+
+
+
+
+
+
+\begin{frame}{\color{rosee}Distribuci\'on asint\'otica de $\widehat{\theta}_{MV}$ bajo cond. de regularidad}
+\small
+    Sea $\{X_{1},\dots,X_{n}\}\stackrel{iid}{\sim}X$ donde  $X$ tiene
+    densidad $f(x;\theta)$ para un $\theta$ desconocido. \textbf{Bajo
+    condiciones de regularidad} sobre $f(x;\theta)$ vale que:
+    $$
+    \sqrt{n}\left( \widehat{\theta}_{MV} - \theta\right) \cw N(0, I_{1}(\theta)^{-1}) 
+    $$
+    donde 
+    $$
+    I_{1}(\theta)=E\left[ \left(\frac{\partial \ln(f(X;\theta))}{\partial\theta}(\theta) \right)^{2} \right]
+    $$
+    es la \textbf{informaci\'on de Fisher}.
+
+    \medskip
+
+    ¿Por qué tomamos $\ln(\cdot)$ a  para obtener la información de Fisher?
+    \href{https://www.youtube.com/watch?v=v68zYyaEmEA&ab_channel=3Blue1Brown}{Ver video sobre \textit{information theory} para tener intuición.}
+\end{frame}
+
+
+\begin{frame}{\color{rosee}Optimalidad asintótica de máxima verosimilitud}
+\small
+ %   $I_1(\theta)$ es la menor varianza   asintótica que puede tener un estimador \textit{asint\'oticamente insesgado} (en el sentido de la definición de la slide 9) de $\theta$.
+
+%Cuando ${\small n^{\alpha}(\widehat{\theta}_{n}-\theta) \cw N(0, V(\theta))} $ decimos que $\widehat{\theta}_{n}$ es \textit{asintóticamente insesgado} (aunque no necesariamente se cumpla que $\lim_{n\to \infty}E(\widehat{\theta}_{n})= \theta$).
+   
+    
+\textbf{Bajo condiciones de regularidad}, sabemos que:
+ $$
+    \sqrt{n}\left( \widehat{\theta}_{MV} - \theta\right) \cw N(0, I_{1}(\theta)^{-1}) 
+    $$
+    
+Si además también vale que $\widetilde{\theta}_{n}$ es otro estimador de $\theta$ que cumple que 
+$$
+\sqrt{n}\left( \widetilde{\theta}_{n} - \theta\right) \cw N(0, \widetilde{V}(\theta))
+$$
+entonces vale que 
+$$
+I_{1}^{-1}(\theta)\leq \widetilde{V}(\theta).
+$$
+
+ \medskip Por esto se suele decir que\textbf{ el estimador de m\'axima
+    verosimilitud es asintóticamente eficiente} o también asintóticamente óptimo.
+    
+ \medskip 
+La varianza asintótica de cualquier estimador asintóticamente normal e insesgado es mayor o igual que la varianza asintótica del estimador de máxima verosimilitud. Definimos $\frac{I_{1}^{-1}(\theta)}{\widetilde{V}(\theta)}$
+como la \textbf{eficiencia asintótica relativa} del estimador $\widetilde{\theta}_{n}$.
+
+\end{frame}
+
+
+\begin{frame}{\color{rosee}Distribuci\'on asint\'otica de $\widehat{\theta}_{MV}$ para los ejemplos 1,2,3,6}
+  \small Como se cumplen las condiciones de regularidad en los siguientes modelos:
+
+  \begin{center}
+      \begin{tabular}{|c|c|c|}
+      \hline
+      Modelo    & $\frac{\partial^2}{\partial \theta^2}\ln\left(\mathcal{L}_n(\theta)\right)$ & $I_{n}(\theta)$\\
+      \hline
+      Bernoulli     & $-\frac{\color{dodgerblue}n\overline{X}_n}{p^2}-\frac{\color{orang}n(1-\overline{X}_n)}{(1-p)^{2}}$ & $\frac{n}{p(1-p)}$\\
+      \hline
+      Poisson     & $-\frac{\sum_{i=1}^nX_i}{\lambda^2}$ &$\frac{n}{\lambda}$\\
+      \hline
+      Exponencial     & $-\frac{n}{\lambda^2}$ & $\frac{n}{\lambda^2}$\\
+      \hline
+      ejemplo 6     & $-\sum_{i=1}^{n}
+    \dfrac{X_i^2}{(1+\alpha X_{i})^2}$& $n\cdot E\left(\frac{X^2}{(1+\alpha X)^2}\right)$\\
+      \hline
+      \end{tabular}
+  \end{center}
+\end{frame}
+
+
+\begin{frame}{\color{rosee}Distribuci\'on asint\'otica de $\widehat{\theta}_{MV}$ para los ejemplos 1, 2, 3 y 6}
+Por lo tanto, 
+\begin{itemize}
+    \item Si $X_i\stackrel{iid}{\sim}Be(p)$
+\[\sqrt{n}\left(\overline{X}_n-p\right)\cw N\left(0,p(1-p)\right)\]
+\item Si $X_i\stackrel{iid}{\sim}Poi(\lambda)$
+\[\sqrt{n}\left(\overline{X}_n-\lambda\right)\cw N\left(0,\lambda\right)\]
+\item Si $X_i\stackrel{iid}{\sim}Exp(\lambda)$
+\[\sqrt{n}\left(\frac{1}{\overline{X}_n}-\lambda\right)\cw N\left(0,\lambda^2\right)\]
+\item Si $X_i\stackrel{iid}{\sim}f(x)=\frac{1+\alpha x}{2}$ si $x\in[-1,1]$
+\[\sqrt{n}\left(\widehat{\alpha}_{MV}-\alpha\right)\cw N\left(0,\left[E\left(\frac{X^2}{(1+\alpha X)^2}\right)\right]^{-1}\right)\]
+\end{itemize}
+\end{frame}
+
+\begin{frame}{\color{rosee}Si $X_i\stackrel{iid}{\sim}Unif(0,\theta)$, $\widehat{\theta}_{MV}$ no es asint\'oticamente normal}\small
+ Consideremos que $X_i\sim_{iid}U(0,\theta]$ y las variables $Y_n=\max\{X_1,\dots, X_n\}$. Vimos anteriormente que $F_{Y_n}(x)=\frac{x^n}{\theta^n}$ si $0\leq x\leq \theta$.
+ 
+ Afirmamos que \[n(\theta-Y_n)\cw Exp\left(\frac{1}{\theta}\right)\]
+ 
+ Veamos que $P(n(\theta-Y_n)\leq x)\ton 1-e^{x/\theta}$
+ 
+ \begin{align*}
+     P(n(&\theta-Y_n)\leq x)=P\left(\theta-Y_n\leq \dfrac{x}{n}\right)=P\left(\theta-\dfrac{x}{n}\leq Y_n\right)\\
+     &=P\left(Y_n\geq \theta-\dfrac{x}{n}\right)=1-P\left(Y_n< \theta-\dfrac{x}{n}\right)\\
+     &=1-P\left(X_1<\theta-\dfrac{x}{n},X_2<\theta-\dfrac{x}{n}, \dots, X_n<\theta-\dfrac{x}{n}\right)\\
+     &\underbrace{=}_{X_i \text{ indep}}1-P\left(X_1<\theta-\dfrac{x}{n}\right)\cdots P\left(X_n<\theta-\dfrac{x}{n}\right)\\
+     &\underbrace{=}_{X_i \text{ i.d.}}1-\left(P\left(X_1<\theta-\dfrac{x}{n}\right)\right)^n=1-\left(1-\frac{x}{n\theta}\right)^{n}\ton 1-e^{-x/\theta}.
+ \end{align*}
+\end{frame}
+
+
+\begin{frame}{\color{rosee}Distribución asintótica de $g(\widehat{\theta}_{MV})$}
+¿Qué ocurre con la distribución asintótica de $g(\widehat{\theta}_{MV})$ cuando el parámetro de interés es  $g(\theta)$? (viene el método Delta al rescate).\medskip
+
+Partiendo de que $\widehat{\theta}_{MV}$ 
+    $$
+    \sqrt{n} \left( \widehat{\theta}_{MV} - \color{rosee}\theta\color{black}) \right) \cw N\left(0,
+    I_1^{-1}(\theta)\right).
+    $$
+    si consideramos $g(x)$ es una funci\'on con derivada continua y que
+    $g^{\prime}(\color{rosee}\theta\color{black}))\neq 0$. Entonces
+    \[\sqrt{n} \left( g(\widehat{\theta}_{MV}) - \color{rosee}g(\theta)\color{black}) \right) \cw N\left(0,
+    I_1^{-1}(\theta) \cdot [g^{\prime}(\color{rosee}\theta\color{black})]^{2}\right).\]
+  
+\end{frame}
+
+\begin{frame}{\color{rosee} Ejemplos para encontrar la dist. asintótica de $g(\widehat{\theta}_{MV})$}
+Partiendo de que para cada modelo estadístico se conoce el estimador de máxima verosimilitud y su distribución asintótica, justifique apropiadamente adónde convergen:
+\begin{itemize}
+        \item Si $X_i\stackrel{iid}{\sim}Be(p)$
+\[\sqrt{n}\left(\frac{\overline{X}_n}{1-\overline{X}_n}-\frac{p}{1-p}\right)\]
+\item Si $X_i\stackrel{iid}{\sim}Poi(\lambda)$
+\[\sqrt{n}\left((\overline{X}_n)^2-\lambda^2\right)\]
+\item Si $X_i\stackrel{iid}{\sim}Exp(\lambda)$
+\[\sqrt{n}\left(-\ln(\overline{X}_n)-\ln(\lambda)\right)\]
+\end{itemize}
+    
+\end{frame}
+
+%\begin{frame}{\color{rosee}Distribuci\'on asint\'otica}
+%  Vamos a ver a continuaci\'on que bajo condiciones de regularidad, los
+%  estimadores de m\'axima verosimilitud son asintóticamente normales
+%  con media cero y que su varianza asintótica es en cierto sentido, la
+%  m\'inima posible.
+%\end{frame}
+
+
+
+
+
+
+%\begin{frame}{\color{rosee}Cota de Rao-Cramer e informaci\'on de Fisher}
+% No demostraremos el teorema anterior, pero si un resultado similar, no asintótico.
+%
+%\medskip
+%
+% Veremos que, para ciertos modelos
+%  param\'etricos, hay un l\'imite natural a que tan eficiente (poco
+%  variable) puede ser un estimador insesgado.
+%
+%  \medskip M\'as precisamente, vamos a probar que ning\'un estimador
+%  insesgado de $\theta$ puede tener una varianza menor que
+%  $$
+%  \frac{1}{nI_{1}(\theta)}.
+%  $$
+%  A esta cota se la conoce como la cota de Rao-Cramer.
+%\end{frame}
+%
+%\begin{frame}{\color{rosee}El score}
+%  \begin{definition}[Score]
+%    La funci\'on de score de $\theta$, para el caso de $\theta$ un
+%    n\'umero real est\'a dada por
+%    $$
+%    s_{n}(\theta)=
+%    \frac{d\ln(L_{n}(\theta))}{d\theta}=\frac{d\ln(f(x_{1},\dots,x_{n};
+%      \theta)}{d\theta}.  $$
+%    % Si $\theta=(\theta_{1},\dots,\theta_{r})$ es un vector de $r$ coordenadas
+%    % \begin{align*}
+%    %   s(\theta)&= \nabla \ln(f(x_{1},\dots,x_{n}; \theta)
+%    %   \\
+%    %   &=\left(\frac{d\ln(f(x_{1},\dots,x_{n}; \theta)}{d\theta_{1}},\dots,\frac{d\ln(f(x_{1},\dots,x_{n}; \theta)}{d\theta_{r}} \right).
+%    % \end{align*}
+%    \textbf{El score es una funci\'on \'unicamente de $\theta$.}
+%  \end{definition}
+%\end{frame}
+%
+%\begin{frame}{\color{rosee}El score}
+%  \begin{definition}[Score (aleatorio)]
+%    $$
+%    S_{n}(\theta)= \frac{d\ln(f(X_{1},\dots,X_{n}; \theta)}{d\theta}.
+%    $$
+%    % y si $\theta=(\theta_{1},\dots,\theta_{r})$ es un vector de $r$ coordenadas
+%    % \begin{align*}
+%    %   S(\theta)&= \nabla \ln(f(X_{1},\dots,X_{n}; \theta).
+%    % \end{align*}
+%  \end{definition}
+%
+%  \begin{alertblock}{Ojo}
+%    La diferencia entre $s_{n}(\theta)$ y $S_{n}(\theta)$ es que
+%    $S_{n}(\theta)$ es una variable aleatoria. Lamentablemente, por
+%    razones hist\'oricas, a ambas se las conoce con el nombre de
+%    score. Para tratar de evitar la confusion a $S_{n}(\theta)$ la
+%    llamaremos el score aleatorio.
+%  \end{alertblock}
+%\end{frame}
+%
+%\begin{frame}{\color{rosee}El score}
+%  \begin{proposition}
+%    Bajo \textbf{condiciones de regularidad}
+%    $$
+%    E_{\theta}(S_{n}(\theta))=0,
+%    $$
+%    donde $E_{\theta}(\cdot)$ quiere decir que la esperanza se calcula
+%    usando $\theta$ como valor verdadero del par\'ametro.
+%  \end{proposition}
+%\end{frame}
+%
+%\begin{frame}{\color{rosee}El score}
+%  \begin{proof}
+%    Lo hacemos para el caso de continuas.
+%    \begin{align*}
+%      E_{\theta}(S_{n}(\theta)) &= \int \frac{d\ln(f(x_{1},\dots,x_{n}; \theta)}{d\theta} f(x_{1},\dots,x_{n};\theta) dx_{1}\dots dx_{n}
+%      \\&
+%          =\int \frac{\frac{d f(x_{1},\dots,x_{n}; \theta}{d\theta}}{f(x_{1},\dots,x_{n};\theta)} f(x_{1},\dots,x_{n};\theta) dx_{1}\dots dx_{n}
+%      \\&
+%          =\int \frac{d f(x_{1},\dots,x_{n}; \theta)}{d\theta}dx_{1}\dots dx_{n}
+%      \\&
+%          \underbrace{=}_{\text{delicado}} \frac{d}{d\theta} \int f(x_{1},\dots,x_{n}; \theta) dx_{1}\dots dx_{n}= \frac{d}{d\theta} 1 = 0.
+%    \end{align*}
+%  \end{proof}
+%\end{frame}
+%
+%\begin{frame}{\color{rosee}El score}
+%  \begin{proposition}
+%    Bajo \textbf{condiciones de regularidad}
+%    $$
+%    Var_{\theta}(S_{n}(\theta))=E_{\theta}(S_{n}^{2}(\theta))=
+%    -E_{\theta}\left( \frac{d}{d\theta} S_{n}(\theta) \right) ,
+%    $$
+%    donde $Var_{\theta}(\cdot)$ quiere decir que la esperanza se calcula
+%    usando $\theta$ como valor verdadero del par\'ametro.
+%  \end{proposition}
+%\end{frame}
+%
+%\begin{frame}{\color{rosee}El score}
+%  \begin{proof}
+%    La primer igualdad es inmediata por la proposici\'on
+%    anterior. Ahora, vimos que
+%    \begin{align*}
+%      0= \int s_{n}(\theta) f(x_{1},\dots,x_{n}; \theta) dx_{1}\dots dx_{n}.
+%    \end{align*}
+%    Derivando de ambos lados de la igualdad y metiendo la derivada
+%    adentro de la integral (esto es lo delicado\dots)
+%    \begin{align*}
+%      0&= \int \frac{d}{d\theta} (s_{n}(\theta) f(x_{1},\dots,x_{n}; \theta)) 
+%         dx_{1}\dots dx_{n}
+%      \\&
+%          = \int \frac{d}{d\theta} s_{n}(\theta) f(x_{1},\dots,x_{n}; \theta) 
+%          dx_{1}\dots dx_{n} +
+%      \\& \int  s_{n}(\theta) \frac{d}{d\theta}f(x_{1},\dots,x_{n}; \theta) 
+%          dx_{1}\dots dx_{n}.
+%    \end{align*}
+%  \end{proof}
+%\end{frame}
+%
+%\begin{frame}{\color{rosee}El score} \small
+%  \begin{proof}
+%    Luego
+%    \begin{align*}
+%      -E_{\theta}\left(\frac{d}{d\theta} S_{n}(\theta)\right)
+%      &=-\int \frac{d}{d\theta} s_{n}(\theta) f(x_{1},\dots,x_{n}; \theta) dx_{1}\dots dx_{n} 
+%      \\
+%      &=\int  s_{n}(\theta) \frac{d}{d\theta}f(x_{1},\dots,x_{n}; \theta) dx_{1}\dots dx_{n}.
+%    \end{align*}
+%    Pero 
+%    \begin{align*}
+%      &\int  s_{n}(\theta) \frac{d}{d\theta}f(x_{1},\dots,x_{n}; \theta) dx_{1}\dots dx_{n} =
+%      \\
+%      & \int  \frac{\frac{d f(x_{1},\dots,x_{n}; \theta}{d\theta}}{f(x_{1},\dots,x_{n};\theta)} \frac{d}{d\theta}f(x_{1},\dots,x_{n}; \theta) dx_{1}\dots dx_{n}=
+%      \\
+%      & \int  \left(\frac{\frac{d f(x_{1},\dots,x_{n}; \theta}{d\theta}}{f(x_{1},\dots,x_{n};\theta)}\right)^{2} f(x_{1},\dots,x_{n}; \theta) dx_{1}\dots dx_{n}=E_{\theta}(S_{n}(\theta)^{2}).
+%    \end{align*}
+%  \end{proof}
+%\end{frame}
+%
+%\begin{frame}{\color{rosee}Informaci\'on de Fisher}
+%  \begin{definition}[Informaci\'on de Fisher]
+%    La informaci\'on de Fisher, denotada $I_{n}(\theta)$, se define como
+%    $$
+%    I_{n}(\theta)=E_{\theta}\left( S_{n}^{2}(\theta) \right).
+%    $$
+%  \end{definition}
+%  \begin{alertblock}{Idea}
+%    La informaci\'on de Fisher nos dice cuanta informaci\'on hay en una
+%    muestra de tama\~no $n$ sobre el par\'ametro $\theta$.
+%  \end{alertblock}
+%\end{frame}
+%
+%\begin{frame}{\color{rosee}Informaci\'on de Fisher}
+%  \begin{proposition}
+%    \[I_{n}(\theta)=n I_{1}(\theta).\]
+%  \end{proposition}
+%  \begin{alertblock}{Idea}
+%    La informaci\'on crece linealmente con el n\'umero de observaciones.
+%  \end{alertblock}
+%\end{frame}
+%
+%\begin{frame}{\color{rosee}Informaci\'on de Fisher} \small
+%  \begin{proof}
+%    \begin{align*}
+%      &I_{n}(\theta)= E_{\theta}\left( S_{n}^{2}(\theta) \right) = Var_{\theta}\left( S_{n}(\theta) \right)= Var_{\theta}\left( \frac{d}{d\theta} \ln(f(x_{1};\theta)\dots f(x_{n};\theta)) \right)=
+%      \\
+%      &
+%        Var_{\theta}\left( \frac{d}{d\theta} \sum_{i=1}^{n}\ln(f(x_{i};\theta)) \right)=Var_{\theta}\left(  \sum_{i=1}^{n} \frac{d}{d\theta}\ln(f(x_{i};\theta)) \right)=
+%      \\
+%      &
+%        \sum_{i=1}^{n} Var_{\theta}\left( \frac{d}{d\theta}\ln(f(x_{i};\theta))\right)=\sum\limits_{i=1}^{n} I_{1}(\theta)= nI_{1}(\theta).
+%    \end{align*}
+%  \end{proof}
+%  \begin{alertblock}{}
+%    Notar que usamos fuertemente que $X_{1},\dots, X_{n}$ son i.i.d.
+%  \end{alertblock}
+%\end{frame}
+%
+%\begin{frame}{\color{rosee}Informaci\'on de Fisher} \small
+%  \begin{example}[Poisson]
+%    Supongamos que $X_{1},\dots, X_{n}$ son Pois($\lambda$). Entonces
+%    $\theta=\lambda$. La verosimilitud es
+%    $$
+%    L_{n}(\theta)=e^{-\theta} \frac{\theta^{x_{1}}}{x_{1}!}\dots
+%    e^{-\theta} \frac{\theta^{x_{n}}}{x_{n}!} = \frac{\exp(-n\theta)
+%      \theta^{\sum_{i=1}^{n} x_{i}}}{\prod_{i=1}^{n} x_{i}!}.
+%    $$
+%    $$
+%    \ln(L_{n}(\theta))= -n\theta + \sum_{i=1}^{n}x_{i} \ln(\theta) +
+%    \ln(\prod_{i=1}^{n} x_{i}!).
+%    $$
+%    $$
+%    \frac{d}{d\theta}\ln(L_{n}(\theta))= -n+ \sum_{i=1}^{n}x_{i}
+%    \frac{1}{\theta}.
+%    $$
+%    $$
+%    \frac{d^{2}}{d\theta^{2}}\ln(L_{n}(\theta))= -\sum_{i=1}^{n}x_{i}
+%    \frac{1}{\theta^{2}}.
+%    $$
+%    $$
+%    I_{n}(\theta)= -E\left(-\sum_{i=1}^{n}X_{i}
+%      \frac{1}{\theta^{2}}\right) =\frac{1}{\theta^{2}}
+%    \sum_{i=1}^{n}E(X_{i}) = \frac{n}{\theta}.
+%    $$
+%  \end{example}
+%\end{frame}
+%
+%\begin{frame}{\color{rosee}Informaci\'on de Fisher} \small
+%  \begin{example}[Bernoulli]
+%    Supongamos que $X_{1},\dots, X_{n}$ son Ber($p$). Entonces
+%    $\theta=p$. La verosimilitud es
+%    $$
+%    L_{n}(\theta)=\theta^{\sum_{i=1}^{n} x_{i}}
+%    (1-\theta)^{(n-{\sum_{i=1}^{n} x_{i}})}.
+%    $$
+%    $$
+%    \ln(L_{n}(\theta))= (\sum_{i=1}^{n} x_{i}) \ln(\theta)+
+%    (n-\sum_{i=1}^{n} x_{i}) \ln(1-\theta).
+%    $$
+%    $$
+%    \frac{d}{d\theta}\ln(L_{n}(\theta))=(\sum_{i=1}^{n} x_{i})
+%    \frac{1}{\theta}- (n-\sum_{i=1}^{n} x_{i}) \frac{1}{1-\theta}.
+%    $$
+%    $$
+%    \frac{d^{2}}{d\theta^{2}}\ln(L_{n}(\theta))= -(\sum_{i=1}^{n}
+%    x_{i}) \frac{1}{\theta^{2}}- (n-\sum_{i=1}^{n} x_{i})
+%    \frac{1}{(1-\theta)^{2}}.
+%    $$
+%    $$
+%    I_{n}(\theta)= -E\left(-(\sum_{i=1}^{n} x_{i}) \frac{1}{\theta^{2}}-
+%      (n-\sum_{i=1}^{n} x_{i}) \frac{1}{(1-\theta)^{2}}\right) =
+%    \frac{n}{\theta (1-\theta)}.
+%    $$
+%  \end{example}
+%\end{frame}
+%
+%\begin{frame}{\color{rosee}Cota de Rao-Cramer}
+%  \begin{theorem}
+%    Sea $\widehat{\theta}_{n}$ un estimador insesgado de
+%    $\theta$. Entonces \textbf{bajo condiciones de regularidad}
+%    \[Var(\widehat{\theta}_{n})\geq \frac{1}{I_{n}(\theta)} = \frac{1}{n
+%      I_{1}(\theta)}.\]
+%  \end{theorem}
+%
+%  \begin{alertblock}{Idea}
+%    La m\'inima varianza que puede tener un estimador insesgado de
+%    $\theta$ es $\frac{1}{n I_{1}(\theta)}$. Si un estimador tiene esta
+%    varianza, es decir, si alcanza la cota, tiene que ser el IMV. En
+%    este caso, decimos que el estimador es eficiente.
+%  \end{alertblock}
+%\end{frame}
+%
+%\begin{frame}{\color{rosee}Cota de Rao-Cramer} \small
+%  \begin{proof}
+%    La hacemos para el caso de continuas. Como $\widehat{\theta}_{n}$ es
+%    insesgado
+%    \begin{align*}
+%      \theta= E_{\theta}(\widehat{\theta}_{n})= \int \widehat{\theta}_{n}(x_{1},\dots,x_{n}) f(x_{1},\dots,x_{n};\theta)dx_{1}\dots dx_{n}.
+%    \end{align*}
+%    Tomando derivadas de ambos lados y metiendo la derivada dentro de la
+%    integral (delicado)
+%    \begin{align*}
+%      1
+%      &= \int \widehat{\theta}_{n}(x_{1},\dots,x_{n}) \frac{d}{d\theta}f(x_{1},\dots,x_{n};\theta)
+%      \\
+%      &
+%          =\int \widehat{\theta}_{n}(x_{1},\dots,x_{n}) \frac{\frac{d}{d\theta}f(x_{1},\dots,x_{n};\theta)}{f(x_{1},\dots,x_{n};\theta)}f(x_{1},\dots,x_{n};\theta) dx_{1}\dots dx_{n}
+%      \\
+%      &
+%        =\int \widehat{\theta}_{n}(x_{1},\dots,x_{n}) s_{n}(\theta)f(x_{1},\dots,x_{n};\theta) dx_{1}\dots dx_{n}
+%      \\
+%      &
+%        = E_{\theta} \left( \widehat{\theta}_{n} S_{n}(\theta) \right).
+%    \end{align*}
+%  \end{proof}
+%\end{frame}
+%
+%\begin{frame}{\color{rosee}Cota de Rao-Cramer}
+%  \small
+%  \begin{proof}
+%    Como $E_{\theta}(S_{n})=0$, tenemos que $cov(S_{n}(\theta), \widehat{\theta}_{n})=1$.
+%    Por otro lado
+%    \[corr(S_{n}(\theta), \widehat{\theta}_{n}) =
+%    \frac{cov(S_{n}(\theta), \widehat{\theta}_{n})}{\sqrt{Var(
+%        S_{n}(\theta))Var(\widehat{\theta}_{n}) }}= \frac{1}{\sqrt{Var(
+%        S_{n}(\theta))Var(\widehat{\theta}_{n}) }}\leq 1.\]
+%    Luego 
+%    \[ Var(\widehat{\theta}_{n}) \geq \frac{1}{Var(
+%      S_{n}(\theta))}=\frac{1}{I_{n}(\theta)}.\]
+%  \end{proof}
+%\end{frame}
+%
+%\begin{frame}
+%  \begin{example}[Poisson, $\theta=\lambda$]
+%    La cota de Rao-Cramer es 
+%    $$
+%    \frac{1}{n/\theta}=\frac{\theta}{n}.
+%    $$
+%    $\overline{X}_{n}$ es insesgado para $\theta$ y
+%    $$
+%    Var(\overline{X}_{n})=\frac{\theta}{n}.
+%    $$
+%    Por lo tanto $\overline{X}_{n}$ alcanza la cota de Rao-Cramer y es
+%    el IMV para $\theta$.
+%
+%    Notar que la varianza asintótica de $\overline{X}_{n}$ tambi\'en
+%    alcanza la cota de Rao-Cramer.
+%  \end{example}
+%\end{frame}
+%
+%\begin{frame}
+%  \begin{example}[Bernoulli, $\theta=p$]
+%    La cota de Rao-Cramer es 
+%    $$
+%    \frac{1}{n/(\theta (1-\theta))}=\frac{\theta(1-\theta)}{n}.
+%    $$
+%    $\overline{X}_{n}$ es insesgado para $\theta$ y
+%    $$
+%    Var(\overline{X}_{n})=\frac{\theta(1-\theta)}{n}.
+%    $$
+%    Por lo tanto $\overline{X}_{n}$ alcanza la cota de Rao-Cramer y es
+%    el IMV para $\theta$.
+%
+%    Notar que la varianza asintótica de $\overline{X}_{n}$ tambi\'en
+%    alcanza la cota de Rao-Cramer.
+%  \end{example}
+%\end{frame}
+%
+%\begin{frame}
+%  \begin{alertblock}{Ejercicio}
+%    Supongamos que $X_{1},\dots, X_{n}$ son normales con varianza igual
+%    a 1 y media $\mu$. Mostrar que $\overline{X}_{n}$ es el IMV para
+%    $\mu$.
+%  \end{alertblock}
+%\end{frame}
+
+%\begin{frame}
+%  Mediana + bootstrap
+%\end{frame}
+
+\end{document}
+
+%%%%%%%%
+
+SAQUE DE LAS PRIMERAS SLIDES PORQUE DABA MUCHAS VUELTAS
+
+\begin{frame}{\color{rosee}Propiedades asintóticas de estimadores}
+  Ya ten\'iamos definida una propiedad asintótica, la consistencia,
+  que es esencialmente una convergencia en probabilidad. Recordemos la
+  definici\'on:
+  \begin{definition}[Consistencia]
+    Sea $\widehat{\theta}_{n}$ un estimador del par\'ametro $\theta$
+    basado en una muestra aleatoria $X_{1},\dots, X_{n}$. Decimos que
+    $\widehat{\theta}_{n}$ es consistente si
+    \[\widehat{\theta}_{n}\cp \theta\]
+  \end{definition}
+  \medskip
+  Si $\boldsymbol\theta=\left(\theta^{(1)},\theta^{(2)},\dots,\theta^{(p)}\right)$ es un
+  vector de parámetros, decimos que
+  $\widehat{\boldsymbol\theta}_{n}=\left(\widehat{\theta}_{n}^{(1)},\widehat{\theta}_{n}^{(2)},\dots,
+  \widehat{\theta}_{n}^{(p)}\right)$ es consistente si cada coordenada lo es.
+\end{frame}
+
+\begin{frame}{\color{rosee}Propiedades asintóticas de estimadores}
+  \begin{example}
+    Si $X_{1},\dots, X_{n}\stackrel{iid}{\sim}X $ donde $E(X)=\mu$
+    y $\text{Var}(X)=\sigma^{2}$, entonces
+    $$
+    \widehat{\boldsymbol\theta}_{n}=(\overline{X}_{n}, S_{n}^{2})
+    $$
+    es consistente para $\boldsymbol\theta=(\mu, \sigma^{2})$.
+  \end{example}
+
+  \begin{example}
+    Vimos que el estimador de m\'axima verosimilitud (que es igual al de
+    momentos) para el par\'ametro de una variable aleatoria exponencial
+    con par\'ametro $\lambda$ es $1/\overline{X}_{n}$, que es
+    consistente.
+  \end{example}
+  En ambos ejemplos, la prueba de consistencia se basa en que los
+  estimadores son funciones suaves de la media muestral y en la LGN.
+\end{frame}
+
+\begin{frame}{\color{rosee}Propiedades asintóticas de estimadores}
+
+  \begin{example}
+    Para el caso de datos $Unif(0,\theta)$, el estimador de m\'axima
+    verosimilitud era $\max\{X_{1},\dots, X_{n}\}$. Vimos que era
+    consistente analizando su esperanza y su varianza.
+  \end{example}
+
+  \begin{example}
+    Para el caso de datos con densidad
+    \[f_{X}(x;\alpha)=\frac{1+\alpha x}{2} I_{[-1,1]}(x)\]
+    el estimador de m\'axima verosimilitud no ten\'ia f\'ormula
+    cerrada. C\'omo lo analizamos?
+  \end{example}
+  Vamos a dar resultados de consistencia generales para estimadores de
+  m\'axima verosimilitud y de momentos.
+\end{frame}

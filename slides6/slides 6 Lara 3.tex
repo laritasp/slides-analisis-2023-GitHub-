@@ -1,0 +1,1223 @@
+\PassOptionsToPackage{force}{filehook}
+
+\documentclass{beamer}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}% http://ctan.org/pkg/amssymb
+\usepackage{amsfonts}
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+%https://tex.stackexchange.com/questions/42619/x-mark-to-match-checkmark
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+%\usepackage{amsfonts}
+\usepackage{graphicx} 
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage{cancel}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{comment}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+}
+\newtheorem*{proposicion}{Proposici\'on}
+\newtheorem*{teorema}{Teorema}
+\renewcommand*{\proofname}{Demostraci\'on}
+\newtheorem*{ejercicio}{Ejercicio}
+\usepackage{pgf,tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows,patterns}
+\usetikzlibrary{arrows.meta}
+\usepackage[spanish, activeacute]{babel} %Definir idioma español
+\usepackage[utf8]{inputenc} %Codificacion utf-8
+\usepackage{multirow}
+
+%   Esconder las soluciones
+\newif\ifhideproofs
+\hideproofstrue %uncomment to hide proofs
+
+\ifhideproofs
+\usepackage{environ}
+\NewEnviron{hide}{}
+\let\solucion\hide
+\let\endsolucion\endhide
+\fi
+
+\usepackage{color}
+\usepackage{mathpazo}
+\usepackage{hyperref}
+\usepackage{multimedia}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage[spanish, activeacute]{babel} 
+\usepackage{graphicx} 
+\usepackage{booktabs}
+\usepackage{cite}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{multirow,array}
+
+\usepackage{mathrsfs}
+%\usepackage{amssymb}
+
+\usepackage{tabularx}
+    \newcolumntype{L}{>{\raggedright\arraybackslash}X}
+        %\newcolumntype{b}{>{\hsize=1.5\hsize}X}
+    %\newcolumntype{s}{>{\hsize=.9\hsize}X}
+
+\usepackage{amsthm}
+\newtheorem{thm}{Teorema}
+\newtheorem{lem}[thm]{Lema}
+\newtheorem{axiom}[thm]{Axioma}
+\newtheorem{prop}[thm]{Proposici\'on}
+\newtheorem{coro}[thm]{Corolario}
+\theoremstyle{definition}
+\newtheorem{defn}{Definici\'on}
+\DeclareGraphicsExtensions{.pdf,.jpeg,.png,.eps}
+\usetheme{CambridgeUS}
+\setbeamertemplate{navigation symbols}{}
+
+%Paréntisis y otros
+\newcommand{\cmc}{\overset{m.c.}{\rightarrow}}
+\newcommand{\p}[1]{\left(#1\right)}
+\newcommand{\cor}[1]{\left[#1\right]}
+\newcommand{\lla}[1]{\left\{#1\right\}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\lol}{\mathcal{L}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\paren}[1]{\left(#1\right)}
+\newcommand{\corc}[1]{\left[#1\right]}
+\newcommand{\llav}[1]{\left\lbrace#1\right\rbrace}
+\newcommand{\partt}[1]{\left(\text{#1}\right)}
+\newcommand{\corctt}[1]{\left[\text{#1}\right]}
+\newcommand{\llavtt}[1]{\left\lbrace\text{#1}\right\rbrace}
+\makeatletter
+\def\munderbar#1{\underline{\sbox\tw@{$#1$}\dp\tw@\z@\box\tw@}}
+\makeatother
+
+%\usepackage[scr=rsfs,cal=boondox]{mathalfa}
+\usepackage[scr=esstix,cal=boondox]{mathalfa}
+
+% \usepackage{mdframed}
+% \newmdtheoremenv{solucion}{Soluci\'on}
+
+% Enmarcar las soluciones
+% \newenvironment{solu}
+% {%
+% \begin{framed}
+%   \begin{solucion}
+%   }%
+%     {%     
+%   \end{solucion}
+% \end{framed}
+% }
+
+%   Esconder las soluciones
+\newif\ifhideproofs
+%\hideproofstrue %uncomment to hide proofs
+
+\ifhideproofs
+\usepackage{environ}
+\NewEnviron{hide}{}
+\let\solucion\hide
+\let\endsolucion\endhide
+\fi
+
+\decimalpoint
+
+%Graficos y cosas
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{mathtools}
+\usepackage{xcolor}
+%\pgfplotsset{compat=1.9}
+\usepgfplotslibrary{fillbetween,decorations.softclip}
+\pgfplotsset{compat = newest}
+\usepackage{pst-func}
+\usepackage{pstricks}
+\usepackage{pst-plot}
+
+% Comando para usar multiples footnotes en un align environment
+
+\makeatletter
+\newcommand{\AlignFootnote}[1]{%
+    \ifmeasuring@
+    \else
+        \footnote{#1}%
+    \fi
+}
+\makeatother
+
+%https://tex.stackexchange.com/questions/82782/footnote-in-align-environment
+
+%\setlength{\skip\footins}{-1cm}
+
+
+
+\DeclareGraphicsExtensions{.pdf,.jpeg,.png,.eps}
+\usepackage{tikz}
+%\usepackage{tikz-cd}
+\usetikzlibrary{decorations}
+%\usetikzlibrary{snakes}
+\usetikzlibrary{cd}
+
+\useoutertheme{split}
+\useinnertheme{rounded}
+
+
+%\beamertemplatenavigationsymbolsempty  %removes navigation overline
+\definecolor{rosee}{rgb}{0.7,0.05,0.25}
+\definecolor{pacificorange}{cmyk}{0,.6,1,0} %approved Pacific colors 2010
+\definecolor{pacificgray}{cmyk}{0,.15,.35,.60}
+\definecolor{pacificlgray}{cmyk}{0,0,.2,.4}
+\definecolor{pacificcream}{cmyk}{.05,.05,.15,0}
+\definecolor{deepyellow}{cmyk}{0,.17,.80,0}
+\definecolor{lightblue}{cmyk}{.49,.01,0,0}
+\definecolor{lightbrown}{cmyk}{.09,.15,.34,0}
+\definecolor{deepviolet}{cmyk}{.79,1,0,.15}
+\definecolor{deeporange}{cmyk}{0,.59,1,18}
+\definecolor{dustyred}{cmyk}{0,.7,.45,.4}
+\definecolor{grassgreen}{RGB}{92,135,39}
+\definecolor{pacificblue}{RGB}{59,110,143}
+\definecolor{pacificgreen}{cmyk}{.15,0,.45,.30}
+\definecolor{deepblue}{cmyk}{1,.57,0,2}
+\definecolor{turquoise}{cmyk}{.43,0,.24,0}
+\definecolor{gren}{rgb}{0.2,0.8,0.5}
+\definecolor{orang}{rgb}{1,0.64,0}
+\definecolor{amethyst}{rgb}{0.6, 0.4, 0.8}
+\definecolor{dodgerblue}{rgb}{0.12, 0.56, 1.0}
+\definecolor{fandango}{rgb}{0.71, 0.2, 0.54}
+\definecolor{forestgreen(traditional)}{rgb}{0.0, 0.27, 0.13}
+\definecolor{iris}{rgb}{0.35, 0.31, 0.81}
+\definecolor{jazzberryjam}{rgb}{0.65, 0.04, 0.37}
+\definecolor{mediumjunglegreen}{rgb}{0.11, 0.21, 0.18}
+\definecolor{mediumpersianblue}{rgb}{0.0, 0.4, 0.65}
+\definecolor{midnightgreen}{rgb}{0.0, 0.29, 0.33}
+\definecolor{orangee}{rgb}{1.0, 0.5, 0.0}
+
+% There are many different themes available for Beamer. A comprehensive
+% list with examples is given here:
+% http://deic.uab.es/~iblanes/beamer_gallery/index_Yy_theme.html
+% You can uncomment the themes below if you would like to use a different
+% one:
+%\usetheme{AnnArbor} %boca
+%\usetheme{Antibes} %azul y gris
+%\usetheme{Bergen} %overlinera who where
+%\usetheme{Berkeley} %bordes
+%usetheme{Berlin} %blanco y azul
+%\usetheme{Boadilla}
+%\usetheme{boxes}
+\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{default}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Luebeck}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+%\usecolortheme{beaver}
+%\usecolortheme{whale}
+%\usecolortheme{orchid}
+%\usecolortheme{wolverine}
+%\usecolortheme[named=pacificblue]{structure} %replaces the blue of Copenhagen with Pacific orange
+
+\definecolor{myNewColorA}{rgb}{0,0,100}
+\definecolor{myNewColorB}{rgb}{0,100,100}
+\definecolor{myNewColorC}{rgb}{0,200,100}
+\definecolor{myNewColorD}{rgb}{0,100,200}
+
+%\setbeamercolor*{palette primary}{bg=myNewColorA, fg = black}
+%\setbeamercolor*{palette secondary}{bg=myNewColorB, fg = black}
+%\setbeamercolor*{palette tertiary}{bg=myNewColorC, fg = black}
+%\setbeamercolor*{palette quaternary}{bg=myNewColorD, fg = black}
+
+\setbeamercolor*{palette primary}{bg=rosee, fg = white}
+\setbeamercolor*{palette secondary}{bg=gren, fg = white}
+\setbeamercolor*{palette tertiary}{bg=-red!75!, fg = white}
+\setbeamercolor*{palette quaternary}{bg=-red!75!, fg = white}
+
+\newtheorem{proposition}{Proposici\'on}
+\newcommand{\ton}{\underset{n\to\infty}{\longrightarrow}}
+\newcommand{\cp}{\overset{P}{\rightarrow}}
+\newcommand{\cw}{\overset{d}{\rightarrow}}
+
+%\expandafter\def\expandafter\insertshorttitle\expandafter{%
+ % \insertshorttitle\hfill%
+  %\insertframenumber\,/\,\inserttotalframenumber}
+
+%\mode
+%<all>
+
+%Para agrandar el espacio entre renglones de las tablas
+%https://tex.stackexchange.com/questions/26690/how-to-add-extra-spaces-between-rows-in-tabular-environment
+\renewcommand{\arraystretch}{1.5}
+
+\usepackage{color, xcolor}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\usepackage{listings}
+\lstdefinestyle{mystyle}{
+  backgroundcolor=\color{backcolour},   
+  commentstyle=\color{codegreen},
+  language = R,
+  % commentchar=\#,
+  keywordstyle=\color{magenta},
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{codepurple},
+  basicstyle=\ttfamily\footnotesize,
+  breakatwhitespace=false,         
+  breaklines=false,                 
+  captionpos=b,                    
+  frame=single,
+  keepspaces=false,
+  % numbers=left,                    
+  % numbersep=pt,                  
+  % columns=flexible,
+  stepnumber=1,
+  resetmargins=true,
+  showspaces=false,                
+  showstringspaces=false,
+  showtabs=false,                  
+  tabsize=1
+}
+\lstset{style=mystyle}
+  
+\def\mydate{\leavevmode\hbox{\twodigits\day/\twodigits\month/\the\year}}
+\def\twodigits#1{\ifnum#1<10 0\fi\the#1}
+
+\usepackage[final]{pdfpages}
+
+\newcommand\scalemath[2]{\scalebox{#1}{\mbox{\ensuremath{\displaystyle #2}}}}
+%https://tex.stackexchange.com/questions/95821/how-to-scale-or-resize-equation-with-eqno-in-latex
+
+
+% PARA AGREGAR IMAGEN EN EL FONDO DE LAS SLIDES
+\usebackgroundtemplate%
+%{%
+ %\includegraphics[width=\paperwidth,height=\pape%rheight]{slides1/fondo.png}%  
+%}
+
+%CLAVE PARA SACAR ESPACIO DEL MAIN TEXT Y DARSELO A LA NOTA AL PIE
+
+%https://tex.stackexchange.com/questions/477784/adjust-spacing-between-main-text-and-footnote-in-beamer-slides
+\setbeamertemplate{footnote}{ % <---
+  \makebox[1em][l]{\insertfootnotemark}%
+  \begin{minipage}{\dimexpr\linewidth-1em}
+    \footnotesize\linespread{0.84}\selectfont\insertfootnotetext
+  \end{minipage}\vskip 0pt 
+                            }% end of footnote template
+
+\newtheorem*{remark}{Observaci\'on}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\begin{document}
+
+\title{\color{rosee}An\'alisis Estad\'istico}
+\subtitle{\color{rosee}Test de hip\'otesis para dos muestras}
+
+\institute{UTDT}
+\date{}%\today
+
+\begin{frame}
+  \maketitle
+\end{frame}
+
+\begin{frame}{}
+\begin{center}
+    \Large{Test asint\'otico para la diferencia de medias}\\
+    con muestras \textcolor{rosee}{independientes}
+    \end{center}
+\end{frame}
+
+
+\begin{frame}{\color{rosee} Test asint\'otico para la diferencia de medias} \small
+
+ \begin{block}{Supuestos}
+   $X_1,\dots,X_{n}\stackrel{iid}{\sim}X$ e $Y_1,\dots,Y_{m}\stackrel{iid}{\sim}Y$ dos muestras aleatorias y las muestras aleatorias $\munderbar{X}$ e $\munderbar{Y}$ son \textcolor{rosee}{independientes} entre s\'i. Sean $\mu_X=E(X)$ y $\mu_Y=E(Y)$.
+ \end{block}
+ \begin{block}{Test unilateral (cola derecha)}
+   \begin{itemize}
+   \item Queremos testear las hip\'otesis:
+     \begin{description}
+     \item[$H_0$:] $\mu_X -\mu_Y \leq \Delta_0$ vs $H_1$: $\mu_X - \mu_Y > \Delta_0.$
+     \end{description}
+   \item ¿Qu\'e estad\'istico usamos? $Z_{n,m} =
+       \dfrac{\overline{X}_{n}-\overline{Y}_{m}- \Delta}{\sqrt{\frac{S_X^{2}}{n}
+           + \frac{S_Y^2}{m}}}$
+   \item Bajo $H_0$, $Z_{n,m}= \frac{\overline{X}_{n}-\overline{Y}_{m}- \Delta_0}{\sqrt{\frac{S_X^{2}}{n}
+           + \frac{S_Y^2}{m}}} \overset{\stackrel{D}{\longrightarrow}}{\scalemath{0.6}{n,m\to\infty}} \mathcal{N}(0,1) \text{ si } \frac{n}{m}\to c \text{ si } 0<c<+\infty$. 
+   %si $n\gg 0$ y $m\gg 0$.
+   \item Rechazamos $H_0$ si $Z_{n,m} \geq z_{1-\alpha}$.
+   \end{itemize}
+ \end{block}
+\end{frame}
+
+
+\begin{frame}{\color{rosee} Ejemplo (Newbold \S~10.3)}
+    % Newbold Ejemplo 10.3 
+    \small
+El gerente de una tienda comercial quiere contratar más personal para atender al público los fines de semana; ya que sospecha que en estos días se vende en promedio diario significativamente más que los restantes días de la semana.\medskip
+
+Para corroborar su sospecha y fundamentar estadísticamente sus decisiones, el gerente define las variables aleatorias: $X=$ ventas de un día en fin de semana elegido al azar y $Y=$ ventas de una día en semana elegido al azar. Luego: 
+    \begin{itemize}
+        \item Elige al azar $n=105$ días de fin de semana y con los datos de las ventas de esos días calcula que las ventas promedio diaria en fin de semana son de $\overline{x}_n = 10.5$ millones de pesos con un desvío de $s_X = 2.5$ millones.\medskip
+        \item Elige al azar $m=125$ días de semana y con estos datos estima que las ventas medias diaria durante la semana son de $\overline{y}_m = 9.5$ millones de pesos con un desvío de $s_y = 1.6$ millones.\medskip
+    \end{itemize} 
+   \medskip
+ 
+Si llamamos $\mu_X = E(X)$ y $\mu_Y = E(Y)$: ¿Con un nivel de significatividad del $\alpha=0.01$, rechaza el gerente $H_0: \mu_X - \mu_Y\leq 0$? (Ayuda: $z_{0.99}=2.326$).
+   
+\end{frame}
+
+
+\begin{frame}{\color{rosee}Solución}
+    \begin{itemize}
+    \item Notar que para este ejercicio, y en relación al planteo general de la slide \S~3, $\Delta_0=0$. Es decir que $H_0$ se puede reescribir como $H_0: \mu_X \leq \mu_Y$ (las ventas promedio en días de fin de semana son menores o iguales que las ventas promedio de los días en semana).\medskip 
+        \item La región de rechazo del test se escribe como:
+        
+        $$\mathcal{R}=\Big\{(\overline{X}_n,\overline{Y}_m): Z_{n,m}=       \frac{\overline{X}_{n}-\overline{Y}_{m}}{\sqrt{\frac{S_X^{2}}{105}
+           + \frac{S_Y^2}{125}}}\geq 2.326\Big\}$$
+\item De los datos de la muestra surge que $z_{n,m,\text{obs}} = 3.535>2.326$, por lo tanto con un nivel de significatividad del 1\% los datos sugieren que la hipótesis alternativa (las ventas promedio diarias en fines de semana es mayor a las ventas promedio diaria en la semana) es la correcta.\medskip
+\item ¿Cómo calculamos el $p$--valor?\medskip
+\item ¿Cómo construimos la función de potencia del test?
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{\color{rosee} p-valor}
+    
+El $p$-valor aproximado para el test de $H_0: \mu_X-\mu_Y \leq \Delta_0$ se calcula de la siguiente forma
+$$
+\begin{aligned}
+p-\text {valor} &=P_{\Delta_0}\left(\frac{\overline{X}_{n}-\overline{Y}_{m}-\Delta_0}{\sqrt{S_X^2 / n+S_Y^2 / m}} \geq \underbrace{\frac{\overline{x}_{n}-\overline{y}_{m}-\Delta_0}{\sqrt{s_X^2 / n+s_Y^2 / m}}}_{z_{n,m,\text{obs}}}\right) \\
+&\approx P\left(Z_{n,m} \geq z_{n,m,\text{obs}}\right), \text{ con } Z_{n,m}\sim_a N(0,1) \text{ si } n\gg0 \text{ y } m\gg0.
+\end{aligned}
+$$
+
+En el ejemplo, el $p$-valor=$P_{\Delta_0}(Z_{n,m}\geq 3.535)\approx P(Z\geq 3.535)=0.0002$.
+ As\'i arribamos a la conclusi\'on de que en promedio en 2 de cada 10.000 repeticiones del mismo experimento observar\'iamos una estad\'istico $Z$ tan o m\'as grande que $z_{n,m,\text{obs}} = 3.535$ si $H_0$ fuera cierta (hay evidencia muy fuerte en contra de $H_0$).
+\end{frame}
+
+
+
+
+\begin{frame}{\color{rosee} Funci\'on de potencia aproximada (test a cola derecha)}
+    \small
+Para el test de
+$$
+H_0: \mu_X-\mu_Y \leq \Delta_0 \text { vs } H_1: \mu_X-\mu_Y>\Delta_0
+$$
+que rechaza $H_0$ cuando
+$$
+Z_{n,m}=\frac{\overline{X}_{n}-\overline{Y}_{m}-\Delta_0}{\sqrt{S_X^2 / n+S_Y^2 / m}} \geq z_{1-\alpha}
+$$
+\textbf{su funci\'on de potencia} es
+$$
+\begin{aligned}
+\pi(\Delta) &=P_{\Delta}\left(\frac{\overline{X}_{n}-\overline{Y}_{m}-\Delta_0}{\sqrt{S_X^2 / n+S_Y^2 / m}} \geq z_{1-\alpha}\right) \\
+&=P_{\Delta}\left(\frac{\overline{X}_{n}-\overline{Y}_{m}-\Delta}{\sqrt{S_X^2 / n+S_Y^2 / m}} \geq z_{1-\alpha}+\frac{\Delta_0-\Delta}{\sqrt{S_X^2 / n+S_Y^2 / m}}\right) \\
+& \approx P\left(Z_{n,m} \geq z_{1- \alpha}+\frac{\Delta_0-\Delta}{\sqrt{\sigma_X^2 / n+\sigma_Y^2 / m}}\right) \text { donde } Z_{n,m}\stackrel{a}{\sim} N(0,1) 
+\end{aligned}
+$$
+%donde
+%$$
+%v^*=\left\lfloor\frac{\left(\left(\sigma_X^2 / n\right)+\left(\sigma_Y^2 / m\right)\right)^2}{\left(\sigma_X^2 / n\right)^2 /\left(n-1\right)+\left(\sigma_Y^2 / m\right)^2 /\left(m-1\right)}\right\rfloor
+%$$
+\end{frame}
+
+
+\begin{frame}{\color{rosee}C\'alculo de la potencia aproximada - ejemplo}
+\small
+
+Por lo tanto $\pi(\Delta)\approx  P\left(Z \geq z_{1- \alpha}+\frac{\Delta_0-\Delta}{\sqrt{\sigma_X^2 / n+\sigma^2_Y / m}}\right)  $
+
+De los datos de la muestra resulta podemos aproximadamente calcular $\pi(\Delta=1)$:     
+$$
+\pi(1) \approx P\left(Z \geq \frac{\Delta_0-1}{\sqrt{\sigma_X^2 / n+\sigma_Y^2 / m}} + z_{1- \alpha}\right)
+$$
+Para el ejemplo: $\Delta_0=0, n=105,m=125, \alpha=0.01$, aproximamos $\sigma_X^2\approx s_X^2=2.5^2$ y $\sigma_Y^2\approx s_Y^2=1.6^2$ :
+%$$
+%\begin{aligned}
+%v^* &=\left\lfloor\frac{\left(\left(\sigma_X^2 / n\right)+\left(\sigma_Y^2 / m\right)\right)^2}{\left(\sigma_X^2 / n\right)^2 /\left(n-1\right)+\left(\sigma_Y^2 / m\right)^2 /\left(m-1\right)}\right\rfloor \\
+%&=\left\lfloor\frac{((0.005 / 5)+(0.002 / 5))^2}{(0.005 / 5)^2 / 4+(0.002 / 5)^2 / 4}\right\rfloor=\lfloor 6.7586\rfloor=6
+%\end{aligned}
+%$$
+
+
+
+\begin{align*}
+\pi(1) & \approx P\left(Z\geq \frac{0-1}{\sqrt{2.5^2 /105+1.6^2 / 125}} + 2.326\right) \\
+& \approx P\left(Z\geq -1.210\right) =1-\Phi(-1.210) =0.886
+\end{align*}
+
+%Observe que para calcular el valor exacto de $F_6(-0.22561)$ use la applicaci\'on en la pagina http://stattrek.com/online-calculator/t-distribution.aspx. Sin emoverlinego, si usamos los valores tabulados disponibles en tablas de la distribuci\'on$t$, podremos acotar la potencia pero no calcular su valor exacto.
+\end{frame}
+
+
+\begin{frame}{\color{rosee} Ejemplo 1}
+    %slide 23 
+   \small
+   
+   El director de una ONG que defiende los derechos de las mujeres sospecha que las empresas discriminan en contra de mujeres con hijos pequeños en sus
+procedimientos para contratar nuevos empleados. 
+
+\medskip
+
+Para corroborar su sospecha el director prepara 100 curr\'iculums distintos en los cuales se indica que el
+candidato es una mujer sin hijos. A su vez prepara otros 100 curr\'iculums, cada uno esencialmente id\'entico -en el sentido de que reflejan experiencias laborales parecidas- a cada uno de los 100 anteriores, excepto que cada uno ahora indica que el candidato es una mujer con dos hijos en jard\'in de infantes.
+
+El director elige al azar \textbf{cien empresas} entre todas las que han publicado avisos
+buscando empleados y \textbf{las separa aleatoriamente en dos grupos} cada uno de
+cincuenta empresas.
+%Pasado un mes, para
+%cada empresa $i$ seleccionada el director registra,
+
+%    El director de una ONG que defiende los derechos de las mujeres sospecha que las empresas discriminan en contra de mujeres con hijos pequeños en sus procedimientos para  contratar nuevos empleados. 
+    
+%\medskip
+    
+ %Para corroborar su sospecha el director elige al azar 100 empresas que han publicado avisos buscando empleadas y las separa aleatoriamente en dos grupos (Grupo 1 y 2), cada uno de cincuenta empresas elegidas al azar, a las que enviará:
+   \begin{itemize}
+        \item A cada una de las cincuenta empresas del primer grupo les envía los 100 currículums que indican que la mujer no tiene hijos.
+        \medskip
+        \item A cada una de las cincuenta empresas del segundo grupo les envía los 100 currículums que indican que la mujer tiene dos hijos.
+        \medskip
+    \end{itemize} 
+   \medskip
+\end{frame}
+
+\begin{frame}{\color{rosee} Ejemplo 1} \small
+%slide 23 continuaci\'on
+Luego, $n=m=50$. El director no asume nada acerca de las distribuciones de $X_i$ e $Y_i$ y considera $\alpha=0.05$.
+\medskip
+Pasado un mes, para cada empresa $i=1,\cdots, 50$ de cada grupo el director registra,
+\begin{itemize}
+    \item  $X_i=\frac{1}{100} \cdot$ el número de currículums de mujeres sin hijos que recibieron entrevistas laborales en la empresa $i$ del primer grupo.
+\item  $Y_i=\frac{1}{100} \cdot$ el número de currículums de mujeres con dos hijos en jard\'in de infantes que recibieron entrevistas laborales en la empresa $i$ del segundo grupo.
+\end{itemize}
+Los resultados registrados fueron los siguientes
+\begin{itemize}
+\item Grupo 1 (sin hijos): $\overline{x}_{50}=0.258$, $s_X^2=0.05$ %$ 0.38,0.26,0.18,0.24,0.23$
+\item Grupo 2 (con hijos): $\overline{y}_{50}=0.2$, $s_Y^2=0.02$ %$0.28,0.20,0.14,0.20,0.18$
+\end{itemize}
+\end{frame}
+%\begin{frame}{\color{rosee}}
+    %slide 109
+%\small
+% Consideremos ahora el ejemplo 3 pero supongamos ahora que para analizar los datos el director no asume nada acerca de las varianzas de las distribuciones de las $X_i$ y de las $Y_i$ Recordemos que el ejemplo 3 es el siguiente.
+%- EI director de una ONG que defiende los derechos de las mujeres sospecha que las empresas discriminan en contra de mujeres con hijos pequeños en sus procedimientos para contratar nuevos empleados. Para corroborar su sospecha el director prepara 100 currículums distintos en los cuales se indica que el candidato es una mujer sin hijos. A su vez prepara otros 100 currículums, cada uno esencialemente idéntico -en el sentido de que reflejan experiencias laborales parecidas- a cada uno de los 100 anteriores, excepto que cada uno ahora indica que el candidato es una mujer con dos hijos en jardín de infantes.
+%El director elige al azar diez empresas entre todas las que han publicado avisos buscando empleados y las separa aleatoriamente en dos grupos cada uno de cinco empresas.
+%- A cada una de las cinco empresas del primer grupo les env\'ia los 100 curriculums que indican que la mujer no tiene hijos
+%- A cada una de las cinco empresas del segundo grupo les env\'ia los 100 curriculums que indican que la mujer tiene dos hijos
+%Pasado un mes, para cada empresa $i$ seleccionada el director registra,
+%- $X_i=\frac{1}{100} \cdot$ el número de currículums de mujeres $\sin$ hijos que recibieron entrevistas laborales en la empresa $i$ del primer grupo.
+%- $Y_i=\frac{1}{100} \cdot$ el número de currículums de mujeres con hijos en jardin de infantes que recibieron entrevistas laborales en la empresa $i$ del segundo grupo.
+%Los resultados registrados fueron los siguientes:
+%\begin{itemize}
+%\item Grupo 1 (sin hijos): $ 0.38,0.26,0.18,0.24,0.23$
+%\item Grupo 2 (con hijos): $0.38,0.20,0.14,0.20,0.18$
+%\end{itemize}
+%\end{frame}
+
+
+\begin{frame}%{\color{rosee}}
+\small
+%slide 111
+ %   Los datos son
+%$\begin{array}{ll}\text { Grupo } 1 \text { (sin hijos): } & 0.38,0.26,0.18,0.24,0.23 \\ \text { Grupo } 2 \text { (con hijos): } & 0.28,0.20,0.14,0.20,0.18\end{array}$
+ En nuestro ejemplo deseamos testear
+$$
+H_0: \mu_X-\mu_Y \leq 0 \quad \text { vs } \quad H_1: \mu_X-\mu_Y>0
+$$
+Recordemos que ya hemos calculado anteriormente que $\overline{x}_{n}=0.258$ y que $\overline{y}_{m}=0.2$. Luego,
+%$$
+%\begin{aligned}
+%&S_X^2=\frac{1}{4}\left((0.38-0.258)^2+\ldots+(0.23-0.258)^2\right)=0.005 \\
+%&S_Y^2=\frac{1}{4}\left((0.28-0.2)^2+\ldots+(0.18-0.2)^2\right)=0.002
+%\end{aligned}
+%$$
+%y por lo tanto
+%$$
+%\begin{aligned}
+%\nu &=\left\lfloor\frac{\left[S_X^2 / n\right]^2+\left[S_Y^2 / m\right]^2}{\left[S_X^2 / n\right]^2 /\left(n-1\right)+\left[S_Y^2 / m\right]^2 /\left(m-1\right)}\right\rfloor \\
+%&=\left\lfloor\frac{((0.005 / 5)+(0.002 / 5))^2}{(0.005 / 5)^2 / 4+(0.002 / 5)^2 / 4}\right\rfloor=\lfloor 6.7586\rfloor=6
+%\end{aligned}
+%$$
+Luego, el valor observado del estad\'istico $z_{n,m,\text{obs}}$ es
+
+$$
+\frac{\overline{x}_{n}-\overline{y}_{m}-\Delta_0}{\sqrt{s_X^2 / n+s_Y^2 / m}}=\frac{0.258-0.2-0}{\sqrt{\frac{0.05}{50}+\frac{0.02}{50}}}=1.5501
+$$
+
+%slide 112
+El valor cr\'itico es $z_{1-\alpha}=1.645$, mientras que el valor observado del estad\'istico $z_{n,m,\text{obs}}=1.5501<1.645=$ valor cr\'itico del test de nivel $0.05$.
+
+\medskip
+
+Como el valor cr\'itico $z_{1-\alpha}=1.645$ es mayor que el valor observado 1.5501 del estad\'istico $Z$ entonces concluimos que para un nivel de significaci\'on aproximado de $5 \%$\textbf{ no hay suficiente evidencia para rechazar} $H_0$.
+
+\medskip
+
+Es decir, para un nivel de significaci\'on de $5 \%$, los datos recogidos no proveen evidencia suficiente a favor de la afirmaci\'on de que, en la selecci\'on de personal, las empresas discriminan a las mujeres con hijos.
+\end{frame}
+
+\begin{frame}{\color{rosee}Funci\'on de potencia del test - test a cola derecha}
+\small
+Para el test de
+$$
+H_0: \mu_X-\mu_Y \leq \Delta_0 \text { vs } H_1: \mu_X-\mu_Y>\Delta_0
+$$
+que rechaza $H_0$ cuando
+$$
+\frac{\overline{X}_{n}-\overline{Y}_{m}-\Delta_0}{\sqrt{S_X^2 / n+S_Y^2 / m}} \geq z_{1-\alpha}
+$$
+su \textbf{función de potencia} es
+$$
+\begin{aligned}
+\pi(\Delta) &=P_{\Delta}\left(\frac{\overline{X}_{n}-\overline{Y}_{m}-\Delta_0}{\sqrt{S_X^2 / n+S_Y^2 / m}} \geq z_{1-\alpha}\right) \\
+&=P_{\Delta}\left(\frac{\overline{X}_{n}-\overline{Y}_{m}-\Delta_0}{\sqrt{S_X^2 / n+S_Y^2 / m}} \geq z_{1-\alpha}+\frac{\Delta_0-\Delta}{\sqrt{S_X^2 / n+S_Y^2 / m}}\right) \\
+& \approx P\left(Z_{n,m} \geq z_{1-\alpha}+\frac{\Delta_0-\Delta}{\sqrt{\sigma_X^2 / n+\sigma_Y^2 / m}}\right) \text { donde } Z_{n,m} \stackrel{a}{\sim} N(0,1)
+\end{aligned}
+$$
+\end{frame}
+
+\begin{frame}{\color{rosee} C\'alculo de la potencia aproximada - ejemplo 1}
+\small
+$$
+\pi(\Delta) \approx P\left(Z \geq z_{1-\alpha}+\frac{\Delta_0-\Delta}{\sqrt{\sigma_X^2 / n+\sigma_Y^2 / m}}\right)
+$$
+Para el ejemplo 1, $\Delta_0=0, n=m=50, \alpha=0.05$. Entonces si asumimos que $\sigma_X^2 \approx s_X^2=0.05$ y $\sigma_Y^2 \approx s_Y^2=0.02$, como $z_{0.95}=1.645$, y la potencia $\pi(\Delta)$ para este test en $\Delta=0.1$ es
+$$
+\begin{aligned}
+\pi(0.1) & \approx P\left(Z \geq z_{1-\alpha}+\frac{\Delta_0-\Delta}{\sqrt{\sigma_X^2 / n+\sigma_Y^2 / m}}\right) \\
+& \approx P\left(Z \geq 1.645+\frac{0-0.1}{\sqrt{0.05 / 50+0.02 / 50}}\right) \\
+&=1-\Phi(-1.0276) \\
+&=0.84793
+\end{aligned}
+$$
+\end{frame}
+
+\begin{frame}{\color{rosee} p-valor - ejemplo 1}
+    El $p$-valor aproximado para el test de $H_0: \mu_X-\mu_Y \leq \Delta_0$ en este caso se calcula de la siguiente forma
+$$
+\begin{aligned}
+p-\text { valor } &=P_{\Delta_0}\left[\frac{\overline{X}_{n_X}-\overline{Y}_{n_Y}-\Delta_0}{\sqrt{S_X^2 / n_X+S_Y^2 / n_Y}} \geq \frac{\overline{x}_{n_X}-\overline{y}_{n_Y}-\Delta_0}{\sqrt{s_X^2 / n_X+s_Y^2 / n_Y}}\right] \\
+& \approx P\left[Z \geq \frac{\overline{x}_{n_X}-\overline{y}_{n_Y}-\Delta_0}{\sqrt{s_X^2 / n_X+s_Y^2 / n_Y}}\right]
+\end{aligned}
+$$
+En el ejemplo 1 , el $p$-valor $\approx P(Z \geq 1.5501)=0.06056$. Así arribamos a la conclusión de que en el $6 \%$ de infinitas repeticiones del mismo experimento observaríamos un estadístico $Z_{m,n}$ m\'as extremo que el obtenido para la muestra bajo $H_0$.
+\end{frame}
+
+\begin{frame}{\color{rosee} Test asint\'otico para la diferencia de medias} \small
+
+ \begin{block}{Supuestos}
+  $X_i \stackrel{iid}{\sim} X$ e $Y_i \stackrel{iid}{\sim} Y$ muestras aleatorias independientes entre s\'i.
+%  {\small $X_1,\dots,X_{n}\stackrel{iid}{\sim}X$ e $Y_1,\dots,Y_{m}\stackrel{iid}{\sim}Y$} muestras aleatorias independientes entre s\'i. 
+ \end{block}
+ \begin{block}{Test unilateral (cola izquierda)}
+   \begin{itemize}
+   \item Queremos testear las hip\'otesis:
+     \begin{description}
+     \item[$H_0$:] $\mu_X -  \mu_Y \geq \Delta_0$
+     \item[$H_1$:] $\mu_X - \mu_Y < \Delta_0$
+     \end{description}
+   \item ¿Qu\'e estad\'istico usamos? $Z_{n,m} =
+       \dfrac{\overline{X}_{n}-\overline{Y}_{m} - \Delta}{\sqrt{\frac{S_X^{2}}{n}
+           + \frac{S_Y^2}{m}}}$
+   \item Bajo $H_0$, $Z_{n,m}=\dfrac{\overline{X}_{n}-\overline{Y}_{m} - \Delta_0}{\sqrt{\frac{S_X^{2}}{n}
+           + \frac{S_Y^2}{m}}} \overset{\stackrel{D}{\longrightarrow}}{\scalemath{0.6}{n,m\to\infty}} \mathcal{N}(0,1) \text{ si } \frac{n}{m}\to c \text{ si } 0<c<+\infty$ %si $n\gg 0$ y $m \gg 0$.
+   \item Rechazamos $H_0$ si $Z_{n,m} \leq -z_{1-\alpha}$.
+   \end{itemize}
+ \end{block}
+\end{frame}
+
+\begin{frame}{\color{rosee} Test asint\'otico para la diferencia de medias} \small
+
+\begin{block}{Test unilateral (cola izquierda)}
+\begin{itemize}
+    \item    La funci\'on de potencia es en este caso
+$$
+\begin{aligned}
+\scalemath{0.7}{\pi(\Delta)} &=\scalemath{0.7}{P_{\Delta}\left(\frac{\overline{X}_{n}-\overline{Y}_{m}-\Delta_0}{\sqrt{S_X^2 / n+S_Y^2 / m}} \leq-z_{1- \alpha}\right)} \\
+& \scalemath{0.7}{= P_{\Delta}\left(Z_{n,m}\leq \frac{\Delta_0-\Delta}{\sqrt{S_X^2 / n+S_Y^2 / m}}-z_{1-\alpha}\right), \text{ con } Z_{n,m}\sim_a N(0,1)}\\
+& \scalemath{0.7}{\approx P\left(Z\leq \frac{\Delta_0-\Delta}{\sqrt{S_X^2 / n+S_Y^2 / m}}-z_{1-\alpha}\right)}\\
+& \scalemath{0.7}{\approx P\left(Z\leq \frac{\Delta_0-\Delta}{\sqrt{\sigma_X^2 / n+\sigma_Y^2 / m}}-z_{1-\alpha}\right)}
+\end{aligned}
+$$
+
+\item El $p$-valor es
+$\approx P\left( Z\leq \frac{\overline{x}_{n}-\overline{y}_{m}-\Delta_0}{\sqrt{s_X^2 /  n+s_Y^2 / m}}\right)$.
+\end{itemize}  
+
+\end{block}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%
+%TEST BILATERAL
+\begin{frame}{\color{rosee} Test bilateral} \small
+
+ \begin{block}{Supuestos}
+  {\small $X_1,\dots,X_{n}\stackrel{iid}{\sim}X$ e $Y_1,\dots,Y_{m}\stackrel{iid}{\sim}Y$} muestras aleatorias independientes.
+ \end{block}
+ \begin{block}{Test bilateral}
+   \begin{itemize}
+   \item Queremos testear las hip\'otesis:
+     \begin{description}
+     \item[$H_0$:] $\mu_X - \mu_Y = \Delta_0$ (típicamente $\Delta_0=0$, lo que equivale a $H_0:\mu_X = \mu_Y$)
+     \item[$H_1$:] $\mu_X -\mu_Y \neq \Delta_0$
+     \end{description}
+   \item ¿Qu\'e estad\'istico usamos? $Z_{m,n} =
+       \dfrac{\overline{X}_{n}-\overline{Y}_{m}-\Delta}{\sqrt{\frac{S_X^{2}}{n}
+           + \frac{S_Y^2}{m}}}$
+   \item  Bajo $H_0$, $Z_{n,m}= \dfrac{\overline{X}_{n}-\overline{Y}_{m}-\Delta_0}{\sqrt{\frac{S_X^{2}}{n}
+           + \frac{S_Y^2}{m}}} \overset{\stackrel{D}{\longrightarrow}}{\scalemath{0.6}{n,m\to\infty}} \mathcal{N}(0,1) \text{ si } \frac{n}{m}\to c \text{ si } 0<c<+\infty$
+   %Bajo $H_0$, $Z_{m,n} \overset{a}{\sim} \mathcal{N}(0,1)$ si $n\gg 0$ y $m\gg 0$.
+   \item Rechazamos $H_0$ si $Z_{m,n} \geq z_{1-\alpha/2}$ o $Z_{m,n} \leq -z_{1-\alpha/2}$.
+   \end{itemize}
+ \end{block}
+
+\end{frame}
+
+\begin{frame}{\color{rosee} Ejemplo 2: Test bilateral} \small
+ \begin{exampleblock}{Ejemplo (notas)}
+   Se realiz\'o un experimento para poner a prueba una nueva
+   metodolog\'ia de ense\~nanza.
+
+   \medskip Un grupo de 79 estudiantes recibi\'o clases tradicionales
+   (grupo de control) mientras que a 85 estudiantes les toc\'o la nueva metodolog\'ia (grupo de tratamiento). Después de finalizar el curso, se realizó una encuesta de satisfacción a los estudiantes y estos evaluaron el mismo en una escala $[0,50]$, la siguiente tabla resume los resultados en cada grupo.
+   \begin{table}
+     \centering
+     \begin{tabular}{cccc}
+       \hline
+       Grupo & $n$ & media muestral & $s$ \\
+       \hline
+       Control & $79$ & $\overline{x}_{79}=23.87$ & $s_X=11.60$\\
+       Tratamiento & $85$ & $\overline{y}_{85}=27.34$ & $s_Y=8.85$\\
+       \hline
+     \end{tabular}
+   \end{table}
+ \end{exampleblock}
+\end{frame}
+%
+\begin{frame}{\color{rosee} Ejemplo 2: Test bilateral} \small
+ \begin{exampleblock}{Ejemplo (notas)}
+   Si $\mu_X$ y $\mu_Y$ denotan las medias verdaderas de satisfacción de los grupos de control y de tratamiento respectivamente, consideramos las hip\'otesis:
+   \begin{description}
+   \item[$H_0$:] $\mu_X - \mu_Y = 0$
+   \item[$H_1$:] $\mu_X - \mu_Y \color{rosee}\neq\color{black} 0$ 
+   \end{description}
+   Considerando $\alpha=0.05$, rechazaremos $H_0$ si $z_{n,m,\text{obs}} \leq -z_{0.975} = -1.96$ o si $z_{n,m,\text{obs}} \geq z_{0.975} = 1.96$.
+   \[z_{n,m,\text{obs}}= \frac{23.87 -
+       27.34}{\sqrt{\frac{11.60^2}{79}+\frac{8.85^2}{85}}} =
+     \frac{-3.47}{1.620}= -2.14 \] 
+     
+     Como el valor observado $-2.14$ es menor que el valor cr\'itico $-z_{1- \alpha/2}=-1.96$ del estad\'istico $Z_{m,n}$ entonces concluimos que para un nivel de significaci\'on de $5 \%$  hay suficiente evidencia para rechazar $H_0$.
+     
+
+ \end{exampleblock}
+\end{frame}
+
+\begin{frame}{\color{rosee}Ejemplo 2: test bilateral}
+\small
+Es decir, para un nivel de significaci\'on de 5\%, los datos recogidos proveen evidencia suficiente a favor de la afirmaci\'on de que, en promedio, la nueva metodolog\'ia produce un cambio en la satisfacción de los alumnos.
+   
+ 
+   \begin{align*}
+   p-\text{valor} \approx &  P(\vert Z_{m,n}\vert \color{rosee}>\color{black}\vert z_{n,m,\text{obs}} \vert ) \\ \approx & P(\vert Z \vert \color{rosee}>\color{black}2.14) \\=& 2 P(Z>2.14)=2\cdot 0.016=0.032
+   \end{align*}
+   %Si el test hubiera sido bilateral (a dos colas) el $p$-valor ser\'ia $2\cdot 0.016=0.032$ y tambi\'en se rechazar\'ia $H_0$ a nivel $0.05$
+
+   En general, para un test bilateral, el $p$-valor es:
+   
+   \begin{align*} p-\text { valor } &=P_{\Delta_0}\left[\frac{\left|\overline{X}_{n}-\overline{Y}_{m}-\Delta_0\right|}{\sqrt{S_X^2 / n+S_Y^2 / m}} \geq \frac{\left|\overline{x}_{n}-\overline{y}_{m}-\Delta_0\right|}{\sqrt{s_X^2 / n+s_Y^2 / m}}\right] \\ & \approx 2 \cdot P\left[\vert Z \vert \geq \frac{\left|\overline{x}_{n}-\overline{y}_{m}-\Delta_0\right|}{\sqrt{s_X^2 / n+s_Y^2 / m}}\right] \end{align*}
+\end{frame}
+
+\begin{frame}{\color{rosee} Funci\'on de potencia}
+\small
+Para el test de
+$$
+H_0: \mu_X-\mu_Y=\Delta_0 \quad \text { vs } \quad H_1: \mu_X-\mu_Y \neq \Delta_0
+$$
+que rechaza $H_0$ cuando
+$$\scalemath{0.75}{
+\frac{\left|\overline{X}_{n}-\overline{Y}_{m}-\Delta_0\right|}{\sqrt{S_X^2 / n+S_Y^2 / m}} \geq z_{1-\alpha / 2}}
+$$
+su funci\'on de potencia es
+$$
+\begin{aligned}\scalemath{0.7}{
+\pi(\Delta)=}& \scalemath{0.7}{P_{\Delta}\left(\frac{\left|\overline{X}_{n}-\overline{Y}_{m}-\Delta_0\right|}{\sqrt{S_X^2 / n+S_Y^2 / m}} \geq z_{1-\alpha / 2}\right)} \\
+\scalemath{0.7}{=}&\scalemath{0.7}{ P_{\Delta}\left(\frac{\overline{X}_{n}-\overline{Y}_{m}-\Delta_0}{\sqrt{S_X^2 / n+S_Y^2 / m}} \geq z_{1-\alpha / 2}\right)+P_{\Delta}\left(\frac{\overline{X}_{n}-\overline{Y}_{m}-\Delta_0}{\sqrt{S_X^2 / n+S_Y^2 / m}} \leq-z_{1-\alpha / 2}\right)} \\
+\scalemath{0.7}{\approx} & \scalemath{0.65}{P\left(Z_{m,n} \geq z_{1-\alpha / 2}+\frac{\Delta_0-\Delta}{\sqrt{S_X^2 / n+S_Y^2 / m}}\right)} \scalemath{0.7}{+P\left(Z_{m,n} \leq-z_{1-\alpha / 2}+\frac{\Delta_0-\Delta}{\sqrt{S_X^2 / n+S_Y^2 / m}}\right) \text { donde } Z_{m,n} \stackrel{a}{\sim} N(0,1)} \\
+\scalemath{0.7}{\approx}& \scalemath{0.7}{1-\Phi\left(z_{1-\alpha / 2}+\frac{\Delta_0-\Delta}{\sqrt{\sigma_X^2 / n+\sigma_Y^2 / m}}\right)+\Phi\left(-z_{1-\alpha / 2}+\frac{\Delta_0-\Delta}{\sqrt{\sigma_X^2 / n+\sigma_Y^2 / m}}\right)}
+\end{aligned}
+$$
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\begin{center}
+    \Large{Test asint\'otico para la diferencia de dos
+   proporciones}
+   con muestras \textcolor{rosee}{independientes}
+   \end{center}
+\bigskip
+\textcolor{gray}{En este  bloque discutimos un caso particular de lo anterior asumiendo muestras grandes e independientes de  $X\sim\text{Be}(p_X)$ e $Y\sim \text{Be}(p_Y)$.}\medskip
+\begin{itemize}
+    \item \textcolor{gray}{Ahora tendremos que $\mu_X-\mu = p_X - p_Y$, y por otro lado,\medskip
+    \item $\sigma^2_X=p_X(1-p_X)$ y $\sigma^2_Y=p_Y(1-p_Y)$.}
+    
+\end{itemize}
+
+   
+\end{frame}
+
+\begin{frame}{\color{rosee} Test asint\'otico para la diferencia de dos
+   proporciones}\small
+ A partir de $X_i\stackrel{iid}{\sim}Be(p_X)$ e $Y_i\stackrel{iid}{\sim}Be(p_Y)$ \textbf{muestras aleatorias independientes entre sí} queremos testear las hip\'otesis:
+
+ \begin{center}
+\begin{center}
+\begin{tabular}{c|c|c}
+\textbf{Test a dos colas} & \textbf{Test a cola derecha} & \textbf{Test a cola izquierda}\\
+$H_0: p_X-p_Y = 0$  & $H_0: p_X-p_Y\leq 0$  &$H_0:p_X-p_Y\geq 0$\\
+$H_1: p_X-p_Y \neq 0$  & $H_1: p_X-p_Y>0$  &$H_1:p_X-p_Y <0$
+\end{tabular}
+ \end{center}
+ %    \begin{description}
+ %    \item[$H_0$:] $p_X - p_Y\geq 0$
+ %    \item[$H_1$:] $p_X -p_Y <0$
+ %    \end{description}
+     \end{center}
+ ¿Qu\'e estad\'istico usamos?  Llamamos:
+     \[\widehat{p}_X = \frac{1}{n}\sum_{i=1}^{n}X_i, \quad
+       \widehat{p}_Y = \frac{1}{m}\sum_{j=1}^{m}Y_j \]  podemos
+     pensar entonces en un estad\'istico de la forma:
+     \[Z_{m,n} =  \frac{(\widehat{p}_X -
+         \widehat{p}_Y)-(p_X-p_Y)}{\sqrt{\frac{\widehat{p}_X(1-\widehat{p}_X)}{n} +
+           \frac{\widehat{p}_Y(1-\widehat{p}_Y)}{m}}}\]
+
+ 
+\end{frame}
+
+\begin{frame}{\color{rosee} Test asint\'otico para la diferencia de dos proporciones}
+ \small
+ 
+ Bajo $H_0$, $p_X=p_Y=p_0$ lo que implica que
+     $p_X-p_Y=p_0-p_0=0$,
+     \[\scalemath{0.85}{Z_{m,n} =  \dfrac{\widehat{p}_X -
+         \widehat{p}_Y-0}{\sqrt{\dfrac{\widehat{p}_X(1-\widehat{p}_X)}{n} + \dfrac{\widehat{p}_Y(1-\widehat{p}_Y)}{m}}}
+       \overset{\stackrel{D}{\longrightarrow}}{\scalemath{0.6}{n,m\to\infty}} \mathcal{N}(0,1) \text{ si } \frac{n}{m}\to c \text{ si } 0<c<+\infty}\]
+
+ Estimamos $p_X(1-p_X)$ con $\widehat{p_X}(1-\widehat{p_X})$ y $p_Y(1-p_Y)$ con $\widehat{p_Y}(1-\widehat{p_Y})$.
+ 
+ \medskip
+ 
+         Entonces el estadístico y su distribución bajo $H_0$ con el que haremos el test son:
+\[\scalemath{0.85}{Z_{m,n} =  \dfrac{\widehat{p}_X -
+         \widehat{p}_Y}{\sqrt{\dfrac{\widehat{p_X}(1-\widehat{p_X})}{n} + \dfrac{\widehat{p_Y}(1-\widehat{p_Y})}{m}}} \overset{\stackrel{D}{\longrightarrow}}{\scalemath{0.6}{n,m\to\infty}} \mathcal{N}(0,1) \text{ si } \frac{n}{m}\to c \text{ si } 0<c<+\infty}\]
+\end{frame}
+
+% Newbbold - example 10.5 p401
+\begin{frame}{\color{rosee} Ejemplo 3: consumer recognition}\small
+
+   Una consultora debe determinar si la proporci\'on de personas que
+   conoce cierto producto se vio incrementada luego de una agresiva
+   campa\~na publicitaria.
+   
+   \medskip Antes de la campa\~na, una muestra aleatoria de 270
+   residentes de cierta ciudad fue encuestada sobre si conoc\'ian el
+   producto. La encuesta tuvo $50$ respuestas positivas.
+   
+   \medskip Luego de la campa\~na, se
+   tom\'o una \textbf{segunda muestra} (independiente de la primera) de $203$ residentes que respondieron la
+   misma pregunta siguiendo el mismo protocolo de encuestas. En este
+   caso, $81$ personas dijeron que conoc\'ian el producto. Estos
+   resultados, ¿son suficiente evidencia a favor del aumento del
+   conocimiento del producto?
+   
+   \medskip Definimos a $p_X$ y $p_Y$ como las proporciones poblacionales de personas que conocen el producto antes y después de la campaña publicitaria respectivamente.
+   \medskip
+   
+      Los datos para el problema son
+   \begin{itemize}
+   \item $n=270; \quad\widehat{p}_X=50/270=0,185$
+   \item $m=203; \quad\widehat{p}_Y=81/203=0,399$
+   \end{itemize}
+ 
+\end{frame}
+
+\begin{frame}{\color{rosee} Ejemplo 3: consumer recognition}\small
+    Las hip\'otesis a testear son:
+\begin{center}
+   \begin{description}
+   \item[$H_0$:] $p_X-p_Y \geq 0$
+   \item[$H_1$:] $p_X-p_Y <0$
+   \end{description}
+   \end{center}
+   La hip\'otesis nula establece que no hubo aumento de la proporci\'on de personas que conoce el producto. Rechazamos $H_0$ si
+   \[Z_{m,n}=\dfrac{\widehat{p}_X-\widehat{p}_Y}{\sqrt{\dfrac{\widehat{p}_X(1-\widehat{p}_X)}{n}+
+         \dfrac{\widehat{p}_Y(1-\widehat{p}_Y)}{m}}} < -z_{1-\alpha}\]
+
+%    La estimaci\'on de $p_0$ (bajo $H_0$ tenemos $p_X=p_Y=p_0$) es
+%   \[\widehat{p}_0 = \dfrac{n \widehat{p}_X+m\widehat{p}_Y}{n+m} = 0.277\]
+   El estad\'istico del test observado es $z_{m,n,\text{obs}}= -5.13$. Para un test a izquierda con nivel de significaci\'on
+   $\alpha=0.05$ rechazamos la hip\'otesis nula. Concluimos que la
+   proporci\'on de personas que conoce el producto aument\'o despu\'es
+   de la campa\~na.
+\end{frame}
+
+
+\begin{frame}{\color{rosee} Funci\'on de potencia - test a cola izquierda}
+%FALTARIA PONER UN DELTA
+    \small
+Para el test de
+$$
+H_0: p_X-p_Y \geq 0 \text { vs } H_1: p_X-p_Y<0
+$$
+que rechaza $H_0$ cuando
+$$Z_{m,n}=\scalemath{0.75}{
+\dfrac{\widehat{p}_X -
+         \widehat{p}_Y}{\sqrt{\dfrac{\widehat{p}_X(1-\widehat{p}_X)}{n}+\dfrac{\widehat{p}_Y(1-\widehat{p}_Y)}{m}}}\leq -z_{1-\alpha}}
+$$
+su funci\'on de potencia es
+$$
+\begin{aligned}\scalemath{0.75}{
+\pi(\Delta)} &\scalemath{0.75}{=P_{\Delta}\left(\dfrac{\widehat{p}_X -
+         \widehat{p}_Y}{\sqrt{\dfrac{\widehat{p}_X(1-\widehat{p}_X)}{n}+\dfrac{\widehat{p}_Y(1-\widehat{p}_Y)}{m}}} \leq -z_{1-\alpha}\right)} \\
+&\scalemath{0.75}{=P_{\Delta}\left(\dfrac{\widehat{p}_X -\widehat{p}_Y-\Delta}{\sqrt{\dfrac{\widehat{p}_X(1-\widehat{p}_X)}{n}+\dfrac{\widehat{p}_Y(1-\widehat{p}_Y)}{m}}} \leq -z_{1-\alpha}+\frac{-\Delta}{\sqrt{\dfrac{\widehat{p}_X(1-\widehat{p}_X)}{n}+\dfrac{\widehat{p}_Y(1-\widehat{p}_Y)}{m}}}\right)} \\
+& \scalemath{0.75}{\approx P\left(Z_{m,n} \leq -z_{1- \alpha}+\frac{-\Delta}{\sqrt{\dfrac{p_X(1-p_X)}{n}+\dfrac{p_Y(1-p_Y)}{m}}}\right) \text { donde } Z_{m,n}\stackrel{a}{\sim} N(0,1)} 
+\end{aligned}
+$$
+%donde
+%$$
+%v^*=\left\lfloor\frac{\left(\left(\sigma_X^2 / n\right)+\left(\sigma_Y^2 / m\right)\right)^2}{\left(\sigma_X^2 / n\right)^2 /\left(n-1\right)+\left(\sigma_Y^2 / m\right)^2 /\left(m-1\right)}\right\rfloor
+%$$
+\end{frame}
+
+
+\begin{frame}{\color{rosee}C\'alculo de la potencia aproximada - ejemplo 3}
+\small
+
+
+    
+$$\scalemath{0.8}{
+\pi(\Delta) \approx P\left(Z \leq -z_{1- \alpha}+\frac{-\Delta}{\sqrt{\dfrac{p_X(1-p_X)}{n}+\dfrac{p_Y(1-p_Y)}{m}}}\right)}
+$$
+Para el ejemplo $3$, $n=270, m=203, \alpha=0.05$.
+Entonces si asumimos que $\widehat{p_X}=0.185\approx p_X$, $\widehat{p_Y}=0.399\approx p_Y$, como $z_{0.95}=1.645$, la potencia $\pi(\Delta)$ para este test en $\Delta=-0.1$ es
+%$$
+%\begin{aligned}
+%v^* &=\left\lfloor\frac{\left(\left(\sigma_X^2 / n\right)+\left(\sigma_Y^2 / m\right)\right)^2}{\left(\sigma_X^2 / n\right)^2 /\left(n-1\right)+\left(\sigma_Y^2 / m\right)^2 /\left(m-1\right)}\right\rfloor \\
+%&=\left\lfloor\frac{((0.005 / 5)+(0.002 / 5))^2}{(0.005 / 5)^2 / 4+(0.002 / 5)^2 / 4}\right\rfloor=\lfloor 6.7586\rfloor=6
+%\end{aligned}
+%$$
+
+
+
+$$
+\begin{aligned}\scalemath{0.8}{
+\pi(-0.1)} & \scalemath{0.8}{\approx P\left(Z \leq -z_{1- \alpha}+\frac{-\Delta}{\sqrt{\dfrac{p_X(1-p_X)}{n}+\dfrac{p_Y(1-p_Y)}{m}}}\right)} \\
+& \scalemath{0.8}{\approx P\left(Z\leq -1.645+\frac{0.1}{\sqrt{\dfrac{0.185(1-0.185)}{270}+\dfrac{0.399(1-0.399)}{203}}}\right)} \\
+&\scalemath{0.8}{=\Phi(0.75)} \\
+&\scalemath{0.8}{\approx 0.774}
+\end{aligned}
+$$
+%Observe que para calcular el valor exacto de $F_6(-0.22561)$ use la applicaci\'on en la pagina http://stattrek.com/online-calculator/t-distribution.aspx. Sin emoverlinego, si usamos los valores tabulados disponibles en tablas de la distribuci\'on$t$, podremos acotar la potencia pero no calcular su valor exacto.
+\end{frame}
+
+\begin{frame}{\color{rosee} p-valor}
+    
+El $p$-valor aproximado para el test de $H_0: p_X-p_Y \geq 0$ en este caso se calcula de la siguiente forma
+$$
+\begin{aligned}
+\scalemath{0.75}{
+p-\text {valor}} &\scalemath{0.75}{=P_{0}\left[\dfrac{\widehat{p}_X-\widehat{p}_Y}{\sqrt{\dfrac{\widehat{p}_X(1-\widehat{p}_X)}{n}+
+         \dfrac{\widehat{p}_Y(1-\widehat{p}_Y)}{m}}} \leq \frac{\widehat{p_{X}}_{\text{obs}} -\widehat{p_{Y}}_{\text{obs}} }{\sqrt{\dfrac{\widehat{p_{X}}_{\text{obs}}(1-\widehat{p_{X}}_{\text{obs}})}{n}+
+         \dfrac{\widehat{p_{Y}}_{\text{obs}}(1-\widehat{p_{Y}}_{\text{obs}})}{m}}}\right]} \\
+&\scalemath{0.75}{\approx P\left[Z \leq \frac{\widehat{p_{X}}_{\text{obs}} -\widehat{p_{Y}}_{\text{obs}}}{\sqrt{\dfrac{\widehat{p_{X}}_{\text{obs}}(1-\widehat{p_{X}}_{\text{obs}})}{n}+
+         \dfrac{\widehat{p_{Y}}_{\text{obs}}(1-\widehat{p_{Y}}_{\text{obs}})}{m}}}\right]}
+\end{aligned}
+$$
+
+En el ejemplo 3, el $p$-valor $\approx P(Z\leq -5.13)\approx 0$
+% As\'i arribamos a la conclusi\'on de que en el 6\% de infinitas repeticiones del mismo experimento observar\'iamos una estad\'istico $Z$ tan o m\'as grande que el obtenido si $H_0$ fuera cierta.
+\end{frame}
+
+\begin{frame}{\color{rosee} Test asint\'otico para la diferencia de proporciones} \small
+
+\begin{block}{Test unilateral (cola derecha)}
+  En el caso que $H_0: \Delta= p_X -p_Y \leq 0$,  $H_0: p_X- p_Y > 0$
+    La funci\'on de potencia es en este caso
+$$
+\begin{aligned}
+\pi(\Delta) &=P_{\Delta}\left(\dfrac{\widehat{p}_X-\widehat{p}_Y}{\sqrt{\dfrac{\widehat{p}_X(1-\widehat{p}_X)}{n}+\dfrac{\widehat{p}_Y(1-\widehat{p}_Y)}{m}}} \geq z_{1- \alpha}\right) \\
+& \approx P\left(Z\geq \frac{-\Delta}{\sqrt{\dfrac{p_X(1-p_X)}{n}+\dfrac{p_Y(1-p_Y)}{m}}}+z_{1-\alpha}\right)
+\end{aligned}
+$$
+
+\medskip
+%Los tamaños de muestra
+%$$
+%n=2 \sigma_X^2 \frac{\left(z_1-\beta-z_\alpha\right)^2}{\left(0-\Delta\right)^2} \text { y } m=2 \sigma_Y^2 \frac{\left(z_{1-\beta}-z_\alpha\right)^2}{\left(0-\Delta\right)^2}
+%$$
+%son tamaños que redundan en una potencia en $\Delta$ aproximadamente igual a $1-\beta$ para un test de nivel $\alpha$.
+
+El $p$-valor es 
+$\approx P\left[Z\geq \frac{\widehat{p}_{X,\text{obs}}-\widehat{p}_{Y,\text{obs}}}{\sqrt{\dfrac{\widehat{p}_{X,\text{obs}}(1-\widehat{p}_{X,\text{obs}})}{n}+
+         \dfrac{\widehat{p}_{Y,\text{obs}}(1-\widehat{p}_{Y,\text{obs}})}{m}}}\right]$
+\end{block}
+\end{frame}
+
+\begin{frame}{\color{rosee} Ejemplo 4}
+\small
+Dos tipos de medicamentos para urticaria están siendo testeados para determinar si hay una diferencia en las proporciones de pacientes adultos que reaccionan a 
+dichos medicamentos. 
+
+\medskip
+
+De los 200 adultos que recibieron el medicamento X, 30 de ellos tenían urticaria 30 minutos después de haber recibido el medicamento. 
+
+\medskip
+
+De los 200 adultos que recibieron el medicamento Y, 12 tenían urticaria 30 minutos después de recibido el medicamento.
+
+\medskip
+Conduzca un test con un nivel aproximado del 5\% y  calcule el $p-valor$.
+
+\medskip
+
+Consideremos los siguientes par\'ametros
+\begin{itemize}
+    \item $p_X$: proporción de adultos que recibe el medicamento X, que no hace efecto dentro de 30 minutos.
+    \item $p_Y$: proporción de adultos que recibe el medicamento Y, que no hace efecto dentro de 30 minutos.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{\color{rosee}Ejemplo 4}
+\small
+$$
+\begin{aligned}
+&H_0:  p_X-p_Y=0 \\
+&H_X:  p_X-p_Y \neq 0
+\end{aligned}
+$$
+Para los datos observados en la muestra:
+\begin{itemize}
+    \item  $\widehat{p}_{X,\text{obs}}=\frac{20}{200}=0.1$
+
+\item  $\widehat{p}_{Y,\text{obs}}=\frac{12}{200}=0.06$
+\item  $\dfrac{\widehat{p}_{X,\text{obs}}(1-\widehat{p}_{X,\text{obs}})}{n}+\dfrac{\widehat{p}_{Y,\text{obs}}(1-\widehat{p}_{Y,\text{obs}})}{m}=\dfrac{183}{250000}=0.000732$ 
+
+%$\widehat{p}_0 = \dfrac{n \widehat{p}_X+m\widehat{p}_Y}{n+m}=\frac{20+12}{200+200}=0.08$
+\end{itemize}
+Bajo $H_0$,
+$$
+\begin{aligned}
+\scalemath{0.8}{Z_{n,m}=\dfrac{\widehat{p}_X-\widehat{p}_Y}{\sqrt{\dfrac{\widehat{p}_X(1-\widehat{p}_X)}{n}+\dfrac{\widehat{p}_Y(1-\widehat{p}_Y)}{m}}}\overset{\stackrel{D}{\longrightarrow}}{\scalemath{0.6}{n,m\to\infty}} \mathcal{N}(0,1) \text{ si } \frac{n}{m}\to c \text{ si } 0<c<+\infty}
+\end{aligned}
+$$
+
+%$Z=\dfrac{0.1-0.06}{\sqrt{\frac{0.736}{100}}}\approx 1.4744$.
+
+El estadístico observado es en este caso $z_{n,m,\text{obs}}=1.47844$. El $p$-valor es igual a $ P_{\Delta_0}(\vert Z_{m,n} \vert \geq 1.47844) \approx 2\cdot P(Z\geq 1.47844)=2 \cdot 0.06965=0.1393$. Por lo tanto no se rechaza $H_0$ para $\alpha=0.05$.
+
+\end{frame}
+
+\begin{frame}{\color{rosee} p-valor para un test bilateral}
+
+M\'as en general, en este tipo de test
+
+\medskip
+
+       $\begin{aligned} \scalemath{0.85}{p-\text { valor }} &\scalemath{0.75}{=P_{\Delta_0}\left[\frac{\left|\widehat{p}_X-\widehat{p}_Y\right|}{\sqrt{\dfrac{\widehat{p}_X(1-\widehat{p}_X)}{n}+
+         \dfrac{\widehat{p}_Y(1-\widehat{p}_Y)}{m}}} \geq \frac{\left|\widehat{p}_{X,\text{obs}}-\widehat{p}_{Y,\text{obs}}\right|}{\sqrt{\dfrac{\widehat{p}_{X,\text{obs}}(1-\widehat{p}_{X,\text{obs}})}{n}+
+         \dfrac{\widehat{p}_{Y,\text{obs}}(1-\widehat{p}_{Y,\text{obs}})}{m}}}\right]} \\ &\scalemath{0.85}{\approx 2 \cdot P\left[Z\geq \frac{\left|\widehat{p}_{X,\text{obs}}-\widehat{p}_{Y,\text{obs}}\right|}{\sqrt{\dfrac{\widehat{p}_{X,\text{obs}}(1-\widehat{p}_{X,\text{obs}})}{n}+
+         \dfrac{\widehat{p}_{Y,\text{obs}}(1-\widehat{p}_{Y,\text{obs}})}{m}}}\right]} \end{aligned}$
+\end{frame}
+
+\begin{frame}{\color{rosee} Funci\'on de potencia}
+\small
+Para el test de
+$$
+H_0: \Delta= p_X-p_Y=0 \quad \text { vs } \quad H_1: p_X-p_Y \neq 0
+$$
+que rechaza $H_0$ cuando
+$$\scalemath{0.75}{
+\frac{\left|\widehat{p}_X-\widehat{p}_Y\right|}{\sqrt{\dfrac{\widehat{p}_X(1-\widehat{p}_X)}{n}+
+         \dfrac{\widehat{p}_Y(1-\widehat{p}_Y)}{m}}} \geq z_{1-\alpha / 2}}
+$$
+su funci\'on de potencia es
+$$
+\begin{aligned}\scalemath{0.7}{
+\pi(\Delta)=}& \scalemath{0.7}{P_{\Delta}\left(\frac{\left|\widehat{p}_X-\widehat{p}_Y\right|}{\sqrt{\dfrac{\widehat{p}_X(1-\widehat{p}_X)}{n}+
+         \dfrac{\widehat{p}_Y(1-\widehat{p}_Y)}{m}}} \geq z_{1-\alpha / 2}\right)}
+\end{aligned}
+$$
+\end{frame}
+
+\begin{frame}{\color{rosee} Funci\'on de potencia}
+\small
+
+$$
+\begin{aligned}\scalemath{0.7}{
+\pi(\Delta)=}& \scalemath{0.7}{ P_{\Delta}\left(\frac{\widehat{p}_X-\widehat{p}_Y}{\sqrt{\dfrac{\widehat{p}_X(1-\widehat{p}_X)}{n}+
+         \dfrac{\widehat{p}_Y(1-\widehat{p}_Y)}{m}}} \geq z_{1-\alpha / 2}\right)+P_{\Delta}\left(\frac{\widehat{p}_X-\widehat{p}_Y}{\sqrt{\dfrac{\widehat{p}_X(1-\widehat{p}_X)}{n}+
+         \dfrac{\widehat{p}_Y(1-\widehat{p}_Y)}{m}}} \leq-z_{1-\alpha / 2}\right)} \\
+\scalemath{0.7}{\approx} & \scalemath{0.65}{P\left(Z_{n,m} \geq z_{1-\alpha / 2}+\frac{-\Delta}{\sqrt{\dfrac{\widehat{p}_X(1-\widehat{p}_X)}{n}+ \dfrac{\widehat{p}_Y(1-\widehat{p}_Y)}{m}}}\right) } 
+\scalemath{0.65}{+P\left(Z_{n,m} \leq-z_{1-\alpha / 2}+\frac{-\Delta}{\sqrt{\dfrac{\widehat{p}_X(1-\widehat{p}_X)}{n}+ \dfrac{\widehat{p}_Y(1-\widehat{p}_Y)}{m}}}\right) } \\ 
+        \scalemath{0.7}{\approx} & \scalemath{0.65}{P\left(Z_{n,m} \geq z_{1-\alpha / 2}+\frac{-\Delta}{\sqrt{\dfrac{p_X(1-p_X)}{n}+
+         \dfrac{p_Y(1-p_Y)}{m}}}\right)}\scalemath{0.65}{+P\left(Z_{n,m} \leq-z_{1-\alpha / 2}+\frac{-\Delta}{\sqrt{\dfrac{p_X(1-p_X)}{n}+
+         \dfrac{p_Y(1-p_Y)}{m}}}\right) } \\
+\scalemath{0.7}{\approx}& \scalemath{0.7}{1-\Phi\left(z_{1-\alpha / 2}+\frac{-\Delta}{\sqrt{\dfrac{p_X(1-p_X)}{n}+
+         \dfrac{p_Y(1-p_Y)}{m}}}\right)+\Phi\left(-z_{1-\alpha / 2}+\frac{-\Delta}{\sqrt{\dfrac{p_X(1-p_X)}{n}+
+         \dfrac{p_Y(1-p_Y)}{m}}}\right)}
+\end{aligned}
+$$
+
+\noindent donde $Z_{n,m} \stackrel{a}{\sim} N(0,1)$
+\end{frame}
+
+\begin{frame}{\color{rosee} Comentario para tests con bilaterales (o $H_0$ simple)}
+
+Solamente si $H_0: p_X=p_Y$, como bajo la hip\'otesis nula se tiene que $p_X=p_Y=p_0$, bajo $H_0$ la varianza del estadístico $Z_{n,m}$ es \[\dfrac{p_0(1-p_0)}{n}+\dfrac{p_0(1-p_0)}{m}=p_0(1-p_0)\left[\dfrac{1}{n}+\frac{1}{m}\right]\]
+
+\medskip
+
+Entonces, se puede utilizar como estimador de la varianza
+
+\[\widehat{p_0}\left(1-\widehat{p_0}\right)\left[\dfrac{1}{n}+\frac{1}{m}\right]\]
+    
+ \medskip
+ 
+\noindent donde \[\widehat{p_0}=\dfrac{n\widehat{p_X}+m\widehat{p_Y}}{n+m}=\dfrac{\displaystyle\sum_{i=1}^{n}X_i+\displaystyle\sum_{i=1}^{m}Y_i}{n+m}\]
+
+En el ejercicio de los medicamentos, el estad\'istico observado $z_{m,n, \text{obs}}=1.44$ si se utiliza esta estimaci\'on de la varianza.
+\end{frame}
+
+\begin{frame}{\color{rosee}}
+  \begin{center}
+   \Large Test para la diferencia de medias\\ con observaciones \textcolor{rosee}{pareadas}
+ \end{center}
+\end{frame}
+
+
+\begin{frame}\small
+%	\frametitle{Contraste asintóticos de localización muestras apareadas}
+\begin{itemize}
+\item Consideramos $W_1=X_1-Y_1,\dots,W_n=X_n-Y_n\stackrel{iid}{\sim}(X,Y)$. \medskip %(asumiendo que $V(W)<\infty$)
+\item En general $(X,Y)$ representan mediciones sobre un mismo individuo en dos momentos del tiempo (ej: antes y después de un tratamiento). \medskip
+\begin{itemize}
+    \item Luego $(X_i, Y_i)$ \textbf{no son independientes}, pero $(X_i,X_j)$,  $(Y_i,Y_j)$ y $(X_i,Y_j)$ si son independientes cuando $i\neq j$.\medskip
+\end{itemize}
+\item Nos interesan testear sobre el parámetro  $E(W) = E(X-Y) = \mu_W$:	\begin{center}
+		$H_{0}$: $\mu_W \geq c \qquad H_{0}$: $\mu_W  = c \qquad  H_{0}$: $\mu_W \leq c $\\
+$H_{1}$: $\mu_W  < c \qquad H_{1}$: $\mu_W \neq c \qquad  H_{1}$: $\mu_W > c $
+			\end{center}
+\item Estadístico de contraste para estos test será:
+$T_n=\frac{\overline{W}_n  -\mu_W}{S_W/\sqrt{n}} \xrightarrow{D} N(0,1)$
+\item Bajo $H_0$ $T_n=\frac{\overline{W}_n  -c}{S_W/\sqrt{n}} \xrightarrow{D} N(0,1)$
+\item Regiones de rechazo:	
+{\small
+$$ \{T_n: T_n\leq -z_{1-\alpha}\} \quad \{T_n: |T_n| \geq z_{1-\alpha/2}\} \quad \{T_n: T_n\geq z_{1-\alpha}\} $$}
+\end{itemize}
+
+\end{frame}
+
+
+%\begin{frame}{\color{rosee}4. (b) Muestras que no son independientes}\small
+%
+%La principal característica de las muestras %pareadas es que para cada
+%observación del \textbf{primer grupo} %$X_i\stackrel{iid}%{\sim}N(\mu_X,\sigma_X^2)$, hay una %observación relacionada en
+%el \textbf{segundo grupo} $Y_i\stackrel{iid}{\sim}N(\mu_Y,\sigma_Y^2)$.
+%Las muestras pareadas se obtienen cuando se realizan comparaciones
+%sobre una misma unidad experimental. 
+
+%\medskip Es decir, $(X_i, Y_i)$ no son independientes pero $(X_i,X_j)$ son independientes si $i\neq j$; $(Y_i,Y_j)$ son independientes si $i\neq j$ y $(X_i,Y_j)$ son independientes si $i\neq j$.
+
+%\medskip
+%\textbf{Ejemplos:}
+%se estudia un mismo individuo antes y después de un tratamiento o se estudia distintas variables de un mismo individuo.
+
+% \medskip Consideramos las variables $W_i = X_i - Y_i$, $i=1,\cdots, n$.
+
+%\begin{description}
+%     \item[$H_0$:] $\mu_X = \mu_Y \Longleftrightarrow H_0:\mu_W=0 $
+%     \item[$H_1$:] $\mu_X \neq \mu_Y \Longleftrightarrow H_1:\mu_W\neq 0 $.
+%     \end{description}
+%\end{frame}
+
+%\begin{frame}{\color{rosee}4. (b) Muestras que no son independientes}\small
+%       Consideramos el estad\'istico que, bajo $H_0$
+ % \[ T = \frac{\overline{W}_n - 0}{\sqrt{S^2_W /n}} \sim t_{n-1}\]
+% tiene distribuci\'on
+%  $t-$Student con $n-1$ grados de libertad.
+  
+%  \noindent donde $S_W^2=\dfrac{1}{n-1}\displaystyle\sum_{i=1}^{n}(W_i-\overline{W}_n)^2$
+
+% Rechazo $H_0$ si $\frac{\overline{W}_n}{S_W / \sqrt{n}} <t_{n-1,1-\alpha / 2} \text{ o }\frac{\overline{W}_n}{S_W / \sqrt{n}} >t_{n-1, \alpha / 2}$,
+
+%\medskip 
+%Equivalentemente: $\left|\frac{\overline{W}}{S_W / \sqrt{n}}\right|>\left|t_{n-1, \alpha / 2}\right|$ %, donde $S_W^2=\frac{\sum_{i=1}^n\left(W_i-\overline{W}\right)^2}{n-1}$.
+%\end{frame}
+
+
+\begin{frame}{\color{rosee}Ejemplo}\small
+\begin{itemize}
+    \item Una empresa dedicada a la investigación y producción de medicamentos testea la efectividad de un nuevo medicamento de rápida acción para controlar la presión arterial de pacientes con problemas de hipertensión.\medskip
+    \item En un estudio con $n=100$ pacientes representativos, se midió la presión arterial antes de suministrar la nueva droga (v.a. denotada como $X$) y a los 30 minutos posteriores del suministro (v.a. denotada como $Y$). De los datos de la muestra (ya procesados) surgen las siguientes estimaciones puntuales:\medskip
+    \begin{itemize}
+        \item $\overline{x}_n=13.9$, $\overline{y}_n=11.9$ y $s_w^2=20$.\medskip
+    \end{itemize}
+\item Indique si la empresa farmacéutica alcanza a rechazar a un nivel de significatividad del 5\% la hipótesis $H_0:\mu_X-\mu_Y=\mu_W\leq 1$.\medskip
+\item Determine el menor valor de significatividad que se puede elegir con los datos para al que se logra rechazar. $H_0:\mu_W\leq 1$. 
+
+\item Note que ponemos $c=1$ porque la presión se mide en números enteros.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{\color{rosee} Ejemplo} \small 
+\begin{itemize}
+    \item  En este caso tenemos que $\overline{w}_n = \overline{x}_n - \overline{y}_n = 2$ y $c=1$, luego: 
+  \[ t_{obs} = \frac{2 - 1}{\sqrt{20 /100}}= 2.236, \text{ y } z_{0.975}=1.96\]
+ por lo tanto como $t_{obs}$ es mayor que el valor crítico, rechazamos $H_0$ con un nivel de significatividad del 5\%.\medskip
+\item Para calcular el $p-$valor hacemos:
+\[p-\text{valor} = \Pr(Z>2.236)\approx 0.0126\]
+Por lo tanto, si el nivel asintótico del test $\alpha$  es mayor que $0.0126$ entonces nuestra decisión será rechazar $H_0$ a partir de lo que observamos.
+\end{itemize} 
+ 
+\end{frame}
+
+% Para las próximas versiones de la materia, quizá deberíamos incluír un par de slides sobre multiple testing. Y discutir algunos métodos para controlar la FDR (Benjamini y Hochberg).
+\end{document}
+
+
+
+
+  
